@@ -24,7 +24,7 @@ export async function sendContactEmail(params: SendContactParams) {
       from: env.RESEND_FROM_EMAIL,
       to: env.RESEND_FROM_EMAIL,
       subject: `New inquiry from ${params.name}`,
-      reply_to: params.email,
+      replyTo: params.email,
       html: renderContactEmail(params),
       text: renderContactEmailText(params),
     });
@@ -46,6 +46,11 @@ export async function sendContactEmail(params: SendContactParams) {
 }
 
 async function sendAutoReply(params: SendContactParams) {
+  if (!env.RESEND_FROM_EMAIL) {
+    console.info("RESEND_FROM_EMAIL not configured. Skipping auto-reply.");
+    return;
+  }
+
   try {
     await resend.emails.send({
       from: env.RESEND_FROM_EMAIL,
