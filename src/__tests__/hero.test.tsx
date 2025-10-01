@@ -7,7 +7,7 @@ describe("Hero Component", () => {
     render(<Hero />);
     expect(
       screen.getByRole("heading", {
-        name: /Building digital solutions that help farmers grow smarter/i,
+        name: /Full-stack platforms built for modern agriculture/i,
       }),
     ).toBeInTheDocument();
   });

@@ -21,7 +21,7 @@ const quickLinks = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 bg-muted/30">
-      <div className="container py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12">
         <div className="grid gap-10 lg:grid-cols-4">
           <div className="space-y-3">
             <h3 className="text-lg font-semibold">Let&apos;s grow something together</h3>

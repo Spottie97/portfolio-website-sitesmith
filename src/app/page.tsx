@@ -9,12 +9,15 @@ import { ServicesOverview } from "@/components/sections/services-overview";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/cta";
+import { StrategyPillars } from "@promptcraft/sections/strategy-pillars";
+import { CredibilityStrip } from "@promptcraft/sections/credibility-strip";
+import { ResultsHighlight } from "@promptcraft/sections/results-highlight";
 import { buildMetadata, jsonLdScriptProps, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Agricultural Software Engineer",
   description:
-    "Software engineer specializing in digital agriculture—building farm management platforms, IoT systems, and analytics tools that help farmers optimize operations and increase yields.",
+    "Full-stack engineer building agricultural platforms that connect field telemetry, compliance workflows, and leadership dashboards to drive measurable farm outcomes.",
   path: "/",
 });
 
@@ -39,8 +42,11 @@ export default function HomePage() {
         })}
       />
       <Hero />
+      <CredibilityStrip />
+      <StrategyPillars />
       <Logos />
       <FeaturedProjects />
+      <ResultsHighlight />
       <ServicesOverview />
       <Testimonials />
       <FaqSection />

@@ -32,71 +32,32 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background w-full rounded-md z-0",
+        "relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background",
         className
       )}
     >
-      <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
+      <div className="absolute inset-0 -z-10 flex items-center justify-center">
         <motion.div
-          initial={{ opacity: 0.5, width: "25rem" }}
-          whileInView={{ opacity: 1, width: "50rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          style={{
-            backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-          }}
-          className="absolute inset-auto right-1/2 h-80 overflow-visible w-[50rem] bg-gradient-conic from-primary via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
-        >
-          <div className="absolute  w-[100%] left-0 bg-background h-60 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-          <div className="absolute  w-60 h-[100%] left-0 bg-background  bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
-        </motion.div>
+          initial={{ opacity: 0.4, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+          className="absolute h-[36rem] w-[36rem] rounded-full bg-primary/20 blur-[160px]"
+        />
         <motion.div
-          initial={{ opacity: 0.5, width: "25rem" }}
-          whileInView={{ opacity: 1, width: "50rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          style={{
-            backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-          }}
-          className="absolute inset-auto left-1/2 h-80 w-[50rem] bg-gradient-conic from-transparent via-transparent to-primary text-white [--conic-position:from_290deg_at_center_top]"
-        >
-          <div className="absolute  w-60 h-[100%] right-0 bg-background  bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-          <div className="absolute  w-[100%] right-0 bg-background h-60 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-        </motion.div>
-        <div className="absolute top-1/2 h-80 w-full translate-y-12 scale-x-200 bg-background blur-3xl"></div>
-        <div className="absolute top-1/2 z-50 h-80 w-full bg-transparent opacity-20 backdrop-blur-md"></div>
-        <div className="absolute inset-auto z-50 h-60 w-[48rem] -translate-y-1/2 rounded-full bg-primary opacity-70 blur-3xl"></div>
+          initial={{ opacity: 0.4, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.9, ease: "easeInOut" }}
+          className="absolute h-[48rem] w-[80rem] rounded-full bg-primary/10 blur-[200px]"
+        />
         <motion.div
-          initial={{ width: "12rem" }}
-          whileInView={{ width: "24rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-auto z-30 h-60 w-96 -translate-y-[8rem] rounded-full bg-primary/80 blur-3xl"
-        ></motion.div>
-        <motion.div
-          initial={{ width: "25rem" }}
-          whileInView={{ width: "50rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-auto z-50 h-1 w-[50rem] -translate-y-[8rem] bg-primary"
-        ></motion.div>
-
-        <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-background"></div>
+          initial={{ opacity: 0.4, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.9, ease: "easeInOut" }}
+          className="absolute top-1/2 h-[28rem] w-[60rem] -translate-y-1/2 rounded-full bg-primary/15 blur-[180px]"
+        />
       </div>
 
-      <div className="relative z-50 flex translate-y-64 flex-col items-center justify-end px-5 text-center min-h-screen pb-32">
+      <div className="relative z-10 flex min-h-screen w-full translate-y-16 flex-col items-center justify-center px-5 pb-32 text-center">
         {children}
       </div>
     </div>

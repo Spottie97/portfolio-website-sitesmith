@@ -3,7 +3,7 @@ import { ProjectCard } from "@/components/cards/project-card";
 
 export function CaseStudiesGrid() {
   return (
-    <section className="container space-y-8 px-4 py-16 sm:px-6 lg:px-8">
+    <section className="container space-y-8 py-16">
       <div className="space-y-2">
         <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
           Case studies

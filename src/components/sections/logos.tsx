@@ -6,7 +6,7 @@ import { logoCloud } from "@/data/logos";
 export function Logos() {
   return (
     <section className="border-y border-border/60 bg-muted/30 py-10">
-      <div className="container">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <p className="mb-6 text-center text-sm uppercase tracking-wide text-muted-foreground">
           Technology & platforms powering agricultural solutions
         </p>

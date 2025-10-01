@@ -16,7 +16,7 @@ import { LampContainer } from "@/components/ui/lamp";
 export function Hero() {
   return (
     <LampContainer className="min-h-screen">
-      <div className="relative z-50 flex -translate-y-32 flex-col items-center justify-center px-5 text-center min-h-screen">
+      <div className="container relative z-50 mx-auto flex -translate-y-32 flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8 min-h-screen max-w-7xl">
         <motion.div
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,14 +25,14 @@ export function Hero() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="space-y-8 max-w-4xl"
+          className="space-y-8 w-full max-w-4xl"
         >
           <Badge variant="outline" className="w-fit mx-auto bg-card/50 border-border text-muted-foreground">
             {SITE_LOCATION} • {SITE_TITLE}
           </Badge>
           
           <h1 className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-            Building digital solutions <br /> that help farmers grow smarter, not harder
+            Full-stack platforms built for modern agriculture
           </h1>
           
           <motion.p 
@@ -45,7 +45,7 @@ export function Hero() {
             }}
             className="text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto"
           >
-            {SITE_DESCRIPTION}
+            From irrigation telemetry to traceability analytics, I partner with farm and agri teams to ship software that ties field operations, compliance, and leadership dashboards together.
           </motion.p>
           
           <motion.div 
