@@ -16,7 +16,7 @@ if (!globalThis.IntersectionObserver) {
     }
   }
 
-  // @ts-expect-error - assigning to global for test environment
+  // @ts-ignore - assigning to global for test environment
   globalThis.IntersectionObserver = MockIntersectionObserver;
 }
 
