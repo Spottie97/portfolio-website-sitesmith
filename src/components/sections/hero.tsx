@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import {
   PRIMARY_CTA,
   SECONDARY_CTA,
-  SITE_DESCRIPTION,
   SITE_LOCATION,
   SITE_TITLE,
 } from "@/lib/constants";

@@ -23,7 +23,7 @@ export function Testimonials() {
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">"{testimonial.quote}"</p>
+                  <p className="text-sm text-muted-foreground">&ldquo;{testimonial.quote}&rdquo;</p>
                 </CardContent>
               </Card>
             ))}

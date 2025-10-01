@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Code, Database, Palette, Zap, Globe, Cpu, Terminal, Layers, BarChart3, Cloud, Settings, Leaf } from "lucide-react";
+import { Code, Database, Zap, Terminal, BarChart3, Settings, Leaf } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 

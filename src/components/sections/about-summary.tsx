@@ -103,7 +103,7 @@ export function AboutSummary() {
         </div>
         <div className="max-w-4xl mx-auto">
           <div className="relative space-y-8 before:absolute before:left-4 before:top-0 before:h-full before:w-[2px] before:bg-gradient-to-b from-primary via-primary/50 to-primary/20 md:pl-12">
-            {timeline.map((item, index) => (
+            {timeline.map((item) => (
               <div key={item.year} className="relative flex gap-6">
                 <div className="absolute left-0 top-3 h-4 w-4 -translate-x-[9px] rounded-full border-2 border-primary bg-background shadow-lg" />
                 <div className="flex-1 space-y-3">
