@@ -44,11 +44,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = findProjectBySlug(slug);
 
   if (!project) {
-    return <div className="container py-16">Project not found</div>;
+    return (
+      <div className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          Project not found
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="container space-y-12 py-16">
+    <div className="py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl space-y-12">
       <Script
         id={`ld-project-${project.slug}`}
         {...jsonLdScriptProps(
@@ -161,6 +168,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <Image src={image} alt={`${project.title} preview`} fill className="object-cover" />
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

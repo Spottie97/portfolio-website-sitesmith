@@ -8,7 +8,8 @@ const highlights = [
 
 export function ContactIntro() {
   return (
-    <section className="container space-y-6 py-16">
+    <section className="py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl space-y-6">
       <div className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
           Let&apos;s discuss your farm&apos;s digital future
@@ -35,6 +36,7 @@ export function ContactIntro() {
           </ul>
         </CardContent>
       </Card>
+      </div>
     </section>
   );
 }

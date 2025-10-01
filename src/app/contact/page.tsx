@@ -25,15 +25,19 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   return (
     <div className="space-y-12">
       <ContactIntro />
-      <section className="container grid gap-10 pb-16 md:grid-cols-[1.2fr_0.8fr]">
-        <Card>
-          <CardContent className="p-6">
-            <Suspense fallback={<p>Loading form…</p>}>
-              <ContactForm defaultService={defaultService} />
-            </Suspense>
-          </CardContent>
-        </Card>
-        <ContactDetails />
+      <section className="pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr]">
+            <Card>
+              <CardContent className="p-6">
+                <Suspense fallback={<p>Loading form…</p>}>
+                  <ContactForm defaultService={defaultService} />
+                </Suspense>
+              </CardContent>
+            </Card>
+            <ContactDetails />
+          </div>
+        </div>
       </section>
     </div>
   );

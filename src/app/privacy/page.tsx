@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PrivacyPage() {
   return (
-    <div className="container prose prose-neutral dark:prose-invert py-16">
+    <div className="py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl prose prose-neutral dark:prose-invert">
       <h1>Privacy Policy</h1>
       <p>Last updated: September 30, 2025</p>
       <p>
@@ -29,6 +30,7 @@ export default function PrivacyPage() {
       <p>
         You can request data deletion or export by emailing hello@example.com. Responses are provided within 30 days.
       </p>
+      </div>
     </div>
   );
 }

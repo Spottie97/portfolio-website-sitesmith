@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function TermsPage() {
   return (
-    <div className="container prose prose-neutral dark:prose-invert py-16">
+    <div className="py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl prose prose-neutral dark:prose-invert">
       <h1>Terms of Service</h1>
       <p>Last updated: September 30, 2025</p>
       <h2>Use of content</h2>
@@ -27,6 +28,7 @@ export default function TermsPage() {
       </p>
       <h2>Contact</h2>
       <p>For questions, reach out at hello@example.com.</p>
+      </div>
     </div>
   );
 }
