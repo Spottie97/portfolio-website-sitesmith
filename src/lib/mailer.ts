@@ -1,7 +1,18 @@
 import { Resend } from "resend";
 import { env } from "@/env.mjs";
 
-const resend = new Resend(env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors when API key is not set
+let resend: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resend && env.RESEND_API_KEY) {
+    resend = new Resend(env.RESEND_API_KEY);
+  }
+  if (!resend) {
+    throw new Error("Resend client not initialized - API key is missing");
+  }
+  return resend;
+}
 
 type SendContactParams = {
   name: string;
@@ -86,7 +97,8 @@ export async function sendContactEmail(params: SendContactParams) {
 
   try {
     // Send notification email to you
-    const { data, error } = await resend.emails.send({
+    const client = getResendClient();
+    const { data, error } = await client.emails.send({
       from: env.RESEND_FROM_EMAIL,
       to: env.RESEND_FROM_EMAIL,
       subject: `New inquiry from ${params.name}`,
