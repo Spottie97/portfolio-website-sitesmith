@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { DateTimePicker } from "@/components/ui/calendar-date-and-time-range";
 import { useTransitionMessage } from "@/components/hooks/use-transition-message";
 
 const projectTypes = [
@@ -31,6 +32,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
       name: "",
       email: "",
       company: "",
+      companyWebsite: "",
       message: "",
       projectType: defaultService,
       availability: "",
@@ -44,31 +46,61 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
   }, []);
 
   const onSubmit = async (values: ContactFormValues) => {
-    setState({ status: "pending" });
-    const elapsed = Date.now() - mountedAt;
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...values, elapsed: String(elapsed) }),
-    });
+    try {
+      setState({ status: "pending" });
+      const elapsed = Date.now() - mountedAt;
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, elapsed: String(elapsed) }),
+      });
 
-    if (!response.ok) {
+      if (!response.ok) {
+        setState({
+          status: "error",
+          message: "We couldn't send your message. Try again in a moment.",
+        });
+        return;
+      }
+
+      form.reset();
+      setState({
+        status: "success",
+        message: "Thanks! I'll reply within one business day.",
+      });
+
+      // Reset to idle state after 5 seconds
+      setTimeout(() => {
+        setState({ status: "idle" });
+        setMountedAt(Date.now()); // Reset timer for next submission
+      }, 5000);
+    } catch (error) {
+      console.error("Form submission error:", error);
       setState({
         status: "error",
-        message: "We couldn’t send your message. Try again in a moment.",
+        message: "We couldn't send your message. Try again in a moment.",
       });
-      return;
     }
+  };
 
-    form.reset();
-    setState({
-      status: "success",
-      message: "Thanks! I’ll reply within one business day.",
-    });
+  const onError = (errors: Record<string, unknown>) => {
+    console.log("Form validation errors:", errors);
+    // Show appropriate error messages for validation failures
+    if (errors.name || errors.email || errors.message) {
+      setState({
+        status: "error",
+        message: "Please check the form fields and try again.",
+      });
+      
+      // Clear error after 3 seconds
+      setTimeout(() => {
+        setState({ status: "idle" });
+      }, 3000);
+    }
   };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
+    <form onSubmit={form.handleSubmit(onSubmit, onError)} className="grid gap-4">
       <div className="grid gap-2">
         <label htmlFor="name" className="text-sm font-medium">
           Name
@@ -94,6 +126,22 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
           Company
         </label>
         <Input id="company" autoComplete="organization" {...form.register("company")} />
+      </div>
+
+      <div className="grid gap-2">
+        <label htmlFor="companyWebsite" className="text-sm font-medium">
+          Company Website
+        </label>
+        <Input
+          id="companyWebsite"
+          type="text"
+          placeholder="www.example.com or https://example.com"
+          autoComplete="url"
+          {...form.register("companyWebsite")}
+        />
+        {form.formState.errors.companyWebsite ? (
+          <p className="text-xs text-destructive">{form.formState.errors.companyWebsite.message}</p>
+        ) : null}
       </div>
 
       <div className="grid gap-2">
@@ -131,13 +179,13 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="availability" className="text-sm font-medium">
+        <label className="text-sm font-medium">
           Preferred call time
         </label>
-        <Input
-          id="availability"
-          placeholder="e.g. Weekday mornings or after 17:30"
-          {...form.register("availability")}
+        <DateTimePicker
+          value={form.watch("availability")}
+          onChange={(value) => form.setValue("availability", value)}
+          placeholder="Select date and time for call"
         />
       </div>
 

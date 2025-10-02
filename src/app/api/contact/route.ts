@@ -3,8 +3,6 @@ import { NextResponse } from "next/server";
 import { contactFormSchema } from "@/lib/validators";
 import { sendContactEmail } from "@/lib/mailer";
 
-export const runtime = "edge";
-
 export async function POST(request: Request) {
   const data = await request.json();
 
@@ -22,6 +20,7 @@ export async function POST(request: Request) {
       email: payload.email,
       message: payload.message,
       company: payload.company,
+      companyWebsite: payload.companyWebsite,
       projectType: payload.projectType,
       availability: payload.availability,
     });
