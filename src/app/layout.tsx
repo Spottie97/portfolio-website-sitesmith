@@ -11,6 +11,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SkipToContent } from "@/components/layout/skip-to-content";
 import { env } from "@/env.mjs";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
           <SkipToContent />
           <MainLayout>{children}</MainLayout>
           {env.NEXT_PUBLIC_ENABLE_ANALYTICS ? <Analytics /> : null}
+          {env.NEXT_PUBLIC_ENABLE_ANALYTICS ? <SpeedInsights /> : null}
         </ThemeProvider>
       </body>
     </html>
