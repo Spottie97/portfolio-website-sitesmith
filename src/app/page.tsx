@@ -15,9 +15,9 @@ import { ResultsHighlight } from "@promptcraft/sections/results-highlight";
 import { buildMetadata, jsonLdScriptProps, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Agricultural Software Engineer",
+  title: "Agricultural Technology Specialist",
   description:
-    "Full-stack engineer building agricultural platforms that connect field telemetry, compliance workflows, and leadership dashboards to drive measurable farm outcomes.",
+    "Digital solutions that grow with your farm. 10 years of agricultural experience meets modern software development. Custom farm management systems, precision agriculture apps, IoT integration, and automation built by someone who understands real farming challenges.",
   path: "/",
 });
 

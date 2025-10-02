@@ -7,7 +7,7 @@ import { AboutSummary } from "@/components/sections/about-summary";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Reinhardt Erasmus is a software engineer based in South Africa, specializing in agricultural technology solutions and helping teams ship resilient, accessible, and high-performing web products.",
+    "Meet Reinhardt Erasmus: 10 years of agricultural experience combined with 5 years of software engineering expertise. Building practical AgTech solutions that understand real farming challenges. Available across all time zones for progressive farms worldwide.",
   path: "/about",
 });
 

@@ -8,10 +8,10 @@ export function ServicesList() {
         <div className="space-y-6">
           <div className="space-y-2">
             <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Agricultural software packages
+              Technology Solutions for Modern Agriculture
             </h1>
             <p className="text-muted-foreground">
-              Flexible engagement options designed for farms of every size—from individual operators to large commercial enterprises.
+              Practical, results-driven solutions for farms of every size—from family operations to large commercial enterprises. Built by someone who understands both farming and technology.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">

@@ -4,9 +4,9 @@ import { buildMetadata } from "@/lib/seo";
 import { CaseStudiesGrid } from "@/components/sections/case-studies-grid";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Projects",
+  title: "Agricultural Technology Projects",
   description:
-    "Case studies featuring supply chain, fintech, and analytics platforms delivered with measurable outcomes.",
+    "Real AgTech case studies with measurable results: dairy management systems, farm websites, food production platforms. See how technology solves real farming challenges with proven ROI and efficiency gains.",
   path: "/projects",
 });
 

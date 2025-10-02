@@ -13,10 +13,13 @@ export function FinalCta() {
           <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold">
-                Ready to modernize your farm operations?
+                Every Farm Has Unique Challenges
               </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                Let&apos;s discuss your farming challenges and design a digital solution that fits your operation and delivers real results.
+              <p className="text-base text-muted-foreground">
+                Let&apos;s discuss how custom technology can address yours. Whether you&apos;re looking to automate routine tasks, make better use of your data, or build a complete digital management system—I speak both agriculture and technology.
+              </p>
+              <p className="text-sm text-muted-foreground pt-2">
+                <strong>Available across all time zones.</strong> Supporting progressive farms worldwide with practical solutions that make sense for your operation.
               </p>
             </CardHeader>
             <CardContent>

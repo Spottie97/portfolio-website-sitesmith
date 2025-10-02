@@ -15,7 +15,7 @@ type ContactPageProps = {
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Start a project conversation. Share scope, goals, and constraints to co-create a delivery plan.",
+    "Let's discuss your farm's digital future. Free consultation for agricultural technology projects. Available across all time zones to support farms worldwide.",
   path: "/contact",
 });
 

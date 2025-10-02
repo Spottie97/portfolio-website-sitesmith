@@ -46,29 +46,25 @@ export function DesktopNavTabs() {
     router.push(NAV_LINKS[index].href);
   };
 
-  const handleMouseLeave = () => {
-    const selectedTab = tabsRef.current[selected];
-    if (selectedTab) {
-      const { width } = selectedTab.getBoundingClientRect();
-      setPosition({
-        left: selectedTab.offsetLeft,
-        width,
-        opacity: 1,
-      });
-    }
-  };
-
   return (
     <ul
-      onMouseLeave={handleMouseLeave}
-      className="relative flex w-fit rounded-full border border-border/50 bg-card/50 p-0.5"
+      onMouseLeave={() => {
+        const selectedTab = tabsRef.current[selected];
+        if (selectedTab) {
+          const { width } = selectedTab.getBoundingClientRect();
+          setPosition({
+            left: selectedTab.offsetLeft,
+            width,
+            opacity: 1,
+          });
+        }
+      }}
+      className="relative mx-auto flex w-fit rounded-full border-2 border-border bg-card p-1"
     >
       {NAV_LINKS.map((link, i) => (
         <Tab
           key={link.href}
-          ref={(el: HTMLLIElement | null) => {
-            tabsRef.current[i] = el;
-          }}
+          ref={(el: HTMLLIElement | null) => (tabsRef.current[i] = el)}
           setPosition={setPosition}
           onClick={() => handleTabClick(i)}
           isSelected={selected === i}
@@ -91,25 +87,23 @@ interface TabProps {
 
 const Tab = React.forwardRef<HTMLLIElement, TabProps>(
   ({ children, setPosition, onClick, isSelected }, ref) => {
-    const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>) => {
-      const target = e.currentTarget;
-      if (!target) return;
-
-      const { width } = target.getBoundingClientRect();
-
-      setPosition({
-        left: target.offsetLeft,
-        width,
-        opacity: 1,
-      });
-    };
-
     return (
       <li
         ref={ref}
         onClick={onClick}
-        onMouseEnter={handleMouseEnter}
-        className="relative z-10 block cursor-pointer px-3 py-1.5 text-sm mix-blend-difference text-white transition-colors"
+        onMouseEnter={(e) => {
+          const target = e.currentTarget;
+          if (!target) return;
+
+          const { width } = target.getBoundingClientRect();
+
+          setPosition({
+            left: target.offsetLeft,
+            width,
+            opacity: 1,
+          });
+        }}
+        className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase mix-blend-difference text-white md:px-5 md:py-3 md:text-base transition-colors"
         aria-current={isSelected ? 'page' : undefined}
       >
         {children}
@@ -136,11 +130,10 @@ const Cursor = ({ position }: CursorProps) => {
       }}
       transition={{
         type: "spring",
-        stiffness: 400,
-        damping: 35,
+        stiffness: 500,
+        damping: 30,
       }}
-      className="absolute z-0 top-0.5 bottom-0.5 rounded-full bg-foreground"
-      style={{ height: 'calc(100% - 4px)' }}
+      className="absolute z-0 h-7 rounded-full bg-foreground md:h-12"
     />
   );
 };

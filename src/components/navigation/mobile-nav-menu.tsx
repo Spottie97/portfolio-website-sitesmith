@@ -3,9 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Briefcase, User, PhoneCall, FolderOpen } from "lucide-react";
-import type React from "react";
-
-type IconComponentType = React.ElementType<{ className?: string }>;
+import type { IconComponentType } from "@/components/ui/modern-mobile-menu";
 
 interface NavMenuItem {
   label: string;

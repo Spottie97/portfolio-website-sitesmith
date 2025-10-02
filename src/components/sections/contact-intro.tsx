@@ -2,9 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const highlights = [
-  "Available for farm software projects and AgTech consulting",
+  "10 years of agricultural experience meets modern software development",
   "Solutions built to work reliably in field conditions with offline support",
-  "Deep understanding of agricultural workflows and farmer needs",
+  "Available for consultations across all time zones—supporting farms worldwide",
 ];
 
 export function ContactIntro() {

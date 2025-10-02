@@ -48,6 +48,9 @@ export function AboutSummary() {
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           A software engineer with deep roots in agriculture, building digital tools that solve real farming challenges. Based in South Africa, I combine agricultural knowledge with modern web technology to create platforms that help farmers optimize operations, increase yields, and make data-driven decisions.
         </p>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          My unique journey from 10 years in agriculture to software engineering means I don't just build technology—I build solutions that make sense in the field. I understand the seasonal pressures, the resource constraints, and most importantly, the real problems that need solving.
+        </p>
       </div>
 
       {/* Snapshot Card */}
@@ -74,15 +77,84 @@ export function AboutSummary() {
             </div>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                Uniquely positioned to build solutions that work in the real world of farming, with deep understanding of both agricultural operations and modern software architecture.
+                <strong>Understanding the real challenges farmers face daily.</strong> Uniquely positioned to build solutions that work in the real world of farming, with deep understanding of both agricultural operations and modern software architecture.
               </p>
               <p>
-                Specializing in IoT integration, data analytics, and platforms that work reliably in field conditions with varying connectivity.
+                Specializing in precision agriculture, IoT integration, data analytics, and platforms that work reliably in field conditions with varying connectivity. <strong>Built for the unique demands of agricultural operations.</strong>
               </p>
             </div>
           </CardContent>
           </Card>
         </SpotlightCard>
+      </div>
+
+      {/* Why Choose Me Section */}
+      <div className="space-y-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold mb-4">The Agricultural Technology Advantage</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Why farms choose someone who truly understands their operations
+          </p>
+        </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid gap-6 md:grid-cols-2">
+            <SpotlightCard>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl flex items-start gap-3">
+                    <span className="text-2xl">🌾</span>
+                    <span>Built by Someone Who Gets It</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  Real agricultural experience combined with cutting-edge technology means practical, not theoretical solutions. I understand why a farmer needs to check irrigation data at 5 AM and how every decision impacts the bottom line.
+                </CardContent>
+              </Card>
+            </SpotlightCard>
+            
+            <SpotlightCard>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl flex items-start gap-3">
+                    <span className="text-2xl">💰</span>
+                    <span>ROI That Makes Sense</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  Precision agriculture delivers an average of $90 per acre in savings. Every solution is designed with clear, measurable returns that justify the investment and pay for themselves.
+                </CardContent>
+              </Card>
+            </SpotlightCard>
+            
+            <SpotlightCard>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl flex items-start gap-3">
+                    <span className="text-2xl">📈</span>
+                    <span>Scalable Solutions</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  From family farms to large commercial operations, solutions that grow with your business. Start with what you need now, scale as you expand.
+                </CardContent>
+              </Card>
+            </SpotlightCard>
+            
+            <SpotlightCard>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl flex items-start gap-3">
+                    <span className="text-2xl">🌍</span>
+                    <span>Global Reach, Personal Service</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  Available for consultations across all time zones. Cost-effective development without compromising quality, serving progressive farms worldwide.
+                </CardContent>
+              </Card>
+            </SpotlightCard>
+          </div>
+        </div>
       </div>
 
       {/* Skills Section */}

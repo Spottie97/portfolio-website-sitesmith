@@ -1,19 +1,19 @@
 export const SITE_NAME = "Reinhardt Erasmus";
-export const SITE_TITLE = "Agricultural Software Engineer";
+export const SITE_TITLE = "Agricultural Technology Specialist";
 export const SITE_DESCRIPTION =
-  "Software engineer specializing in digital agriculture solutions—building platforms that help farmers make data-driven decisions and optimize operations.";
+  "10 years of agricultural experience meets modern software development. Building custom farm management systems, precision agriculture apps, and data-driven solutions for farms across all time zones.";
 export const SITE_LOCATION = "South Africa";
 export const SITE_CONTACT_EMAIL = "reinhardterasmus@gmail.com";
 export const SITE_CONTACT_NAME = "Reinhardt Erasmus";
 export const SITE_WHATSAPP = "https://wa.me/27834003092";
 export const SITE_PHONE = "+27834003092";
-export const AVAILABILITY_NOTE = "Available after 17:30 (South African time)";
+export const AVAILABILITY_NOTE = "Supporting farms across all time zones";
 export const PRIMARY_CTA = {
-  label: "Book a Discovery Call",
+  label: "Schedule Your Free Consultation",
   href: "/contact",
 };
 export const SECONDARY_CTA = {
-  label: "View Projects",
+  label: "See How Technology Can Transform Your Operation",
   href: "/projects",
 };
 
