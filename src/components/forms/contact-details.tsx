@@ -7,17 +7,19 @@ import {
   SOCIAL_LINKS,
 } from "@/lib/constants";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function ContactDetails() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Direct contact</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Prefer a quick call? Reach out directly or drop a note on your preferred channel.
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-4">
+    <SpotlightCard>
+      <Card className="border-0">
+        <CardHeader>
+          <CardTitle>Direct contact</CardTitle>
+          <p className="text-sm text-muted-foreground">
+            Prefer a quick call? Reach out directly or drop a note on your preferred channel.
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-4">
         <div className="space-y-1 text-sm">
           <p>
             <span className="font-medium">Email:</span>{" "}
@@ -54,7 +56,8 @@ export function ContactDetails() {
           </div>
         </div>
       </CardContent>
-    </Card>
+      </Card>
+    </SpotlightCard>
   );
 }
 

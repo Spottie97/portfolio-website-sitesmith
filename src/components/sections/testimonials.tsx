@@ -1,5 +1,6 @@
 import { testimonials } from "@/data/testimonials";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function Testimonials() {
   return (
@@ -16,16 +17,18 @@ export function Testimonials() {
           </div>
           <div className="grid w-full gap-6 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="h-full text-left">
-                <CardHeader>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                  <h3 className="text-lg font-semibold">{testimonial.name}</h3>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">&ldquo;{testimonial.quote}&rdquo;</p>
-                </CardContent>
-              </Card>
+              <SpotlightCard key={testimonial.name}>
+                <Card className="h-full text-left border-0">
+                  <CardHeader>
+                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                    <h3 className="text-lg font-semibold">{testimonial.name}</h3>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">&ldquo;{testimonial.quote}&rdquo;</p>
+                  </CardContent>
+                </Card>
+              </SpotlightCard>
             ))}
           </div>
         </div>

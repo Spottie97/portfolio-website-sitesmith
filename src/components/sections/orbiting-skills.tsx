@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Code, Database, Zap, Terminal, BarChart3, Settings, Leaf } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 interface Skill {
   id: number;
@@ -263,9 +264,11 @@ export function OrbitingSkills({
 
                 {/* Expanded Card */}
                 {isExpanded && (
-                  <Card className="absolute top-24 left-1/2 -translate-x-1/2 w-72 bg-card/95 backdrop-blur-xl border-primary/30 shadow-2xl shadow-primary/20 overflow-visible">
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gradient-to-b from-primary to-transparent"></div>
-                    <CardHeader className="pb-3">
+                  <div className="absolute top-24 left-1/2 -translate-x-1/2 w-72">
+                    <SpotlightCard glowColor="accent">
+                      <Card className="bg-card/95 backdrop-blur-xl border-0 shadow-2xl shadow-primary/20 overflow-visible">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gradient-to-b from-primary to-transparent"></div>
+                        <CardHeader className="pb-3">
                       <div className="flex justify-between items-center mb-2">
                         <Badge className="px-3 py-1 text-xs bg-primary/20 text-primary border-primary/30">
                           {skill.category}
@@ -302,7 +305,9 @@ export function OrbitingSkills({
                         </div>
                       </div>
                     </CardContent>
-                  </Card>
+                      </Card>
+                    </SpotlightCard>
+                  </div>
                 )}
               </div>
             );

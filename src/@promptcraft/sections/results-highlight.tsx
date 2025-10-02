@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const metrics = [
   {
@@ -37,20 +38,19 @@ export function ResultsHighlight() {
 
           <div className="grid w-full gap-6 justify-items-stretch md:grid-cols-3">
             {metrics.map((metric) => (
-              <Card
-                key={metric.label}
-                className="h-full w-full bg-gradient-to-b from-primary/10 via-card/80 to-card"
-              >
-                <CardHeader>
-                  <CardTitle className="text-4xl font-semibold text-primary">{metric.stat}</CardTitle>
-                  <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-                    {metric.label}
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{metric.description}</p>
-                </CardContent>
-              </Card>
+              <SpotlightCard key={metric.label} glowColor="primary">
+                <Card className="h-full w-full bg-gradient-to-b from-primary/10 via-card/80 to-card border-0">
+                  <CardHeader>
+                    <CardTitle className="text-4xl font-semibold text-primary">{metric.stat}</CardTitle>
+                    <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+                      {metric.label}
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{metric.description}</p>
+                  </CardContent>
+                </Card>
+              </SpotlightCard>
             ))}
           </div>
         </div>

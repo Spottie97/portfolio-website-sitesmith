@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { OrbitingSkills } from "@/components/sections/orbiting-skills";
 
 const softwareStartYear = 2020;
@@ -51,11 +52,12 @@ export function AboutSummary() {
 
       {/* Snapshot Card */}
       <div className="max-w-4xl mx-auto">
-        <Card className="border-2">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Professional Snapshot</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6 text-center">
+        <SpotlightCard>
+          <Card className="border-0">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl">Professional Snapshot</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6 text-center">
             <div className="grid gap-6 md:grid-cols-3">
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-primary">{softwareExperienceYears}+</div>
@@ -79,7 +81,8 @@ export function AboutSummary() {
               </p>
             </div>
           </CardContent>
-        </Card>
+          </Card>
+        </SpotlightCard>
       </div>
 
       {/* Skills Section */}

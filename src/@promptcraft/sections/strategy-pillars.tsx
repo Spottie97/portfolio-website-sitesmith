@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const pillars = [
   {
@@ -39,27 +40,30 @@ export function StrategyPillars() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((pillar, index) => (
-              <motion.article
+              <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
-                className="relative overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-6 text-left shadow-sm backdrop-blur"
               >
-                <div className="mb-3 inline-flex size-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
-                  0{index + 1}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {pillar.description}
-                </p>
-                <motion.div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300"
-                  whileHover={{ opacity: 1 }}
-                />
-              </motion.article>
+                <SpotlightCard>
+                  <article className="relative overflow-hidden rounded-2xl border-0 bg-card/60 p-6 text-left shadow-sm backdrop-blur">
+                    <div className="mb-3 inline-flex size-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+                      0{index + 1}
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">{pillar.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {pillar.description}
+                    </p>
+                    <motion.div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300"
+                      whileHover={{ opacity: 1 }}
+                    />
+                  </article>
+                </SpotlightCard>
+              </motion.div>
             ))}
           </div>
         </div>

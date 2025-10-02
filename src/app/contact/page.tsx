@@ -6,6 +6,7 @@ import { ContactIntro } from "@/components/sections/contact-intro";
 import { ContactForm } from "@/components/forms/contact-form";
 import { ContactDetails } from "@/components/forms/contact-details";
 import { Card, CardContent } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 type ContactPageProps = {
   searchParams: Promise<{ service?: string }>;
@@ -28,13 +29,15 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <section className="pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr]">
-            <Card>
-              <CardContent className="p-6">
-                <Suspense fallback={<p>Loading form…</p>}>
-                  <ContactForm defaultService={defaultService} />
-                </Suspense>
-              </CardContent>
-            </Card>
+            <SpotlightCard>
+              <Card className="border-0">
+                <CardContent className="p-6">
+                  <Suspense fallback={<p>Loading form…</p>}>
+                    <ContactForm defaultService={defaultService} />
+                  </Suspense>
+                </CardContent>
+              </Card>
+            </SpotlightCard>
             <ContactDetails />
           </div>
         </div>

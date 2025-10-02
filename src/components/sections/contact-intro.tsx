@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const highlights = [
   "Available for farm software projects and AgTech consulting",
@@ -19,23 +20,25 @@ export function ContactIntro() {
         </p>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>What to expect</CardTitle>
-          <p className="text-sm text-muted-foreground">
-            I respond within one business day with suggested next steps and a short Loom walkthrough when helpful.
-          </p>
-        </CardHeader>
-        <CardContent>
-          <ul className="grid gap-3 md:grid-cols-3">
-            {highlights.map((item) => (
-              <li key={item} className="rounded border border-dashed border-border/80 p-4 text-sm text-muted-foreground">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
+      <SpotlightCard>
+        <Card className="border-0">
+          <CardHeader>
+            <CardTitle>What to expect</CardTitle>
+            <p className="text-sm text-muted-foreground">
+              I respond within one business day with suggested next steps and a short Loom walkthrough when helpful.
+            </p>
+          </CardHeader>
+          <CardContent>
+            <ul className="grid gap-3 md:grid-cols-3">
+              {highlights.map((item) => (
+                <li key={item} className="rounded border border-dashed border-border/80 p-4 text-sm text-muted-foreground">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </SpotlightCard>
       </div>
     </section>
   );
