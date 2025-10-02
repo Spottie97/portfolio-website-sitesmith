@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React, { useState, useEffect, useCallback } from "react"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -32,19 +32,49 @@ export function FeatureSteps({
 }: FeatureStepsProps) {
   const [currentFeature, setCurrentFeature] = useState(0)
   const [progress, setProgress] = useState(0)
+  const prefersReducedMotion = useReducedMotion()
+
+  const nextFeature = useCallback(() => {
+    setCurrentFeature((prev) => (prev + 1) % features.length)
+    setProgress(0)
+  }, [features.length])
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (progress < 100) {
-        setProgress((prev) => prev + 100 / (autoPlayInterval / 100))
-      } else {
-        setCurrentFeature((prev) => (prev + 1) % features.length)
-        setProgress(0)
-      }
-    }, 100)
+    // Use requestAnimationFrame for smoother progress updates
+    let animationFrameId: number
+    let lastTimestamp = 0
+    const increment = 100 / (autoPlayInterval / 16.67) // 60fps
 
-    return () => clearInterval(timer)
-  }, [progress, features.length, autoPlayInterval])
+    const updateProgress = (timestamp: number) => {
+      if (lastTimestamp === 0) {
+        lastTimestamp = timestamp
+      }
+
+      const elapsed = timestamp - lastTimestamp
+
+      if (elapsed >= 16.67) { // ~60fps
+        setProgress((prev) => {
+          const newProgress = prev + increment
+          if (newProgress >= 100) {
+            nextFeature()
+            return 0
+          }
+          return newProgress
+        })
+        lastTimestamp = timestamp
+      }
+
+      animationFrameId = requestAnimationFrame(updateProgress)
+    }
+
+    animationFrameId = requestAnimationFrame(updateProgress)
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
+    }
+  }, [autoPlayInterval, nextFeature])
 
   return (
     <div className={cn("p-8 md:p-12", className)}>
@@ -128,17 +158,20 @@ export function FeatureSteps({
                     <motion.div
                       key={index}
                       className="absolute inset-0 rounded-xl overflow-hidden"
-                      initial={{ y: 100, opacity: 0, rotateX: -20 }}
-                      animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                      exit={{ y: -100, opacity: 0, rotateX: 20 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.95 }}
+                      animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+                      exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.95 }}
+                      transition={{ duration: prefersReducedMotion ? 0 : 0.4, ease: "easeOut" }}
+                      style={{ willChange: prefersReducedMotion ? 'auto' : 'transform, opacity' }}
                     >
                       <Image
                         src={feature.image}
                         alt={feature.title || feature.step}
-                        className="w-full h-full object-cover transition-transform transform hover:scale-105 duration-700"
+                        className="w-full h-full object-cover"
                         width={1000}
                         height={500}
+                        priority={index === 0}
+                        loading={index === 0 ? "eager" : "lazy"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                     </motion.div>
@@ -148,10 +181,9 @@ export function FeatureSteps({
             
             {/* Progress indicator */}
             <div className="absolute bottom-4 left-4 right-4 h-1 bg-border/30 rounded-full overflow-hidden">
-              <motion.div
-                className="h-full bg-primary"
+              <div
+                className="h-full bg-primary transition-all duration-100 ease-linear"
                 style={{ width: `${progress}%` }}
-                transition={{ duration: 0.1 }}
               />
             </div>
           </div>

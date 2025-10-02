@@ -41,6 +41,29 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --component-active-color-default: var(----component-active-color-default);
+  --component-line-inactive-color: var(----component-line-inactive-color);
+  --component-active-bg: var(----component-active-bg);
+  --component-shadow: var(----component-shadow);
+  --component-bg: var(----component-bg);
+  --component-inactive-color: var(----component-inactive-color);
+  @keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+    }
+  20% {
+    transform: translateY(-0.3em);
+    }
+  40% {
+    transform: translateY(0);
+    }
+  60% {
+    transform: translateY(-0.1em);
+    }
+  80% {
+    transform: translateY(0);
+    }
+  }
 }
 
 :root {
@@ -76,6 +99,12 @@
   --sidebar-accent-foreground: oklch(0.15 0.02 142);
   --sidebar-border: oklch(0.90 0.01 142);
   --sidebar-ring: oklch(0.45 0.15 142);
+  --component-inactive-color: var(--muted-foreground);
+  --component-bg: var(--card);
+  --component-shadow: var(--border);
+  --component-active-bg: var(--secondary);
+  --component-line-inactive-color: var(--border);
+  --component-active-color-default: var(--accent-foreground);
 }
 
 .dark {
@@ -110,23 +139,144 @@
   --sidebar-accent-foreground: oklch(0.98 0.01 142);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.65 0.16 142);
+  --component-inactive-color: var(--muted-foreground);
+  --component-bg: var(--card);
+  --component-shadow: var(--border);
+  --component-active-bg: var(--secondary);
+  --component-line-inactive-color: var(--muted-foreground);
+  --component-active-color-default: var(--accent-foreground);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  
+
   html {
     @apply scroll-smooth;
   }
-  
+
   body {
     @apply m-0 p-0 bg-background text-foreground;
   }
-  
+
   /* Ensure images are responsive by default */
   img {
     @apply max-w-full h-auto;
   }
+
+  /* Performance optimizations for animations */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* GPU acceleration for animated elements */
+  .gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimize for smooth animations */
+  .smooth-animation {
+    will-change: transform, opacity;
+  }
+
+  /* Content visibility for better rendering performance */
+  .defer-render {
+    content-visibility: auto;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Modern Mobile Menu Styles */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.menu__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--component-inactive-color);
+  width: 100%;
+  text-align: left;
+}
+
+.menu__item:hover {
+  background: var(--component-active-bg);
+}
+
+.menu__item.active {
+  color: var(--component-active-color);
+  background: var(--component-active-bg);
+}
+
+.menu__item.active::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  bottom: 0.5rem;
+  width: var(--lineWidth, 0);
+  height: 2px;
+  background: var(--component-active-color);
+  transition: width 0.3s ease;
+}
+
+.menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.menu__item.active .menu__icon {
+  animation: iconBounce 0.6s ease;
+}
+
+.menu__icon .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2;
+}
+
+.menu__text {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.menu__text.active {
+  color: var(--component-active-color);
+  font-weight: 600;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const pillars = [
@@ -22,6 +22,8 @@ const pillars = [
 ];
 
 export function StrategyPillars() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -42,10 +44,15 @@ export function StrategyPillars() {
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  delay: prefersReducedMotion ? 0 : index * 0.08, 
+                  duration: prefersReducedMotion ? 0 : 0.4, 
+                  ease: "easeOut" 
+                }}
+                style={{ willChange: prefersReducedMotion ? 'auto' : 'transform, opacity' }}
               >
                 <SpotlightCard>
                   <article className="relative overflow-hidden rounded-2xl border-0 bg-card/60 p-6 text-left shadow-sm backdrop-blur">
@@ -56,11 +63,6 @@ export function StrategyPillars() {
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                       {pillar.description}
                     </p>
-                    <motion.div
-                      aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300"
-                      whileHover={{ opacity: 1 }}
-                    />
                   </article>
                 </SpotlightCard>
               </motion.div>
