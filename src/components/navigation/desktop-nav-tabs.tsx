@@ -59,7 +59,7 @@ export function DesktopNavTabs() {
           });
         }
       }}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-border bg-card p-1"
+      className="relative flex w-fit rounded-full border border-border/50 bg-card/50 backdrop-blur-sm p-1"
     >
       {NAV_LINKS.map((link, i) => (
         <Tab
@@ -103,7 +103,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
             opacity: 1,
           });
         }}
-        className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase mix-blend-difference text-white md:px-5 md:py-3 md:text-base transition-colors"
+        className="relative z-10 block cursor-pointer px-4 py-2 text-sm font-medium mix-blend-difference text-white transition-colors"
         aria-current={isSelected ? 'page' : undefined}
       >
         {children}
@@ -133,7 +133,7 @@ const Cursor = ({ position }: CursorProps) => {
         stiffness: 500,
         damping: 30,
       }}
-      className="absolute z-0 h-7 rounded-full bg-foreground md:h-12"
+      className="absolute z-0 top-1 bottom-1 rounded-full bg-foreground"
     />
   );
 };
