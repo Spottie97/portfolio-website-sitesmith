@@ -16,7 +16,6 @@ interface DateTimePickerProps {
 }
 
 const SA_TIMEZONE = "Africa/Johannesburg";
-const SA_START_TIME = "17:30"; // Your availability starts at 17:30 SAST
 
 export function DateTimePicker({ value, onChange, placeholder = "Select date and time" }: DateTimePickerProps) {
   const [selectedDate, setSelectedDate] = useState<CalendarDate | null>(
@@ -38,7 +37,7 @@ export function DateTimePicker({ value, onChange, placeholder = "Select date and
     const endHour = 20;
     
     for (let hour = startHour; hour <= endHour; hour++) {
-      for (let minute of [0, 30]) {
+      for (const minute of [0, 30]) {
         if (hour === startHour && minute < startMinute) continue;
         if (hour === endHour && minute > 0) continue;
         
@@ -46,12 +45,6 @@ export function DateTimePicker({ value, onChange, placeholder = "Select date and
         
         // Convert SA time to user's timezone
         const saDateTime = new Date(`2024-01-01T${timeString}:00`);
-        const saTimeStr = saDateTime.toLocaleTimeString('en-US', {
-          timeZone: SA_TIMEZONE,
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false
-        });
         
         const userTimeStr = saDateTime.toLocaleTimeString('en-US', {
           timeZone: userTimezone,
