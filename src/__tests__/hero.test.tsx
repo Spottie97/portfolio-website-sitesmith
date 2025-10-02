@@ -7,15 +7,15 @@ describe("Hero Component", () => {
     render(<Hero />);
     expect(
       screen.getByRole("heading", {
-        name: /Full-stack platforms built for modern agriculture/i,
+        name: /Digital Solutions That Grow With Your Farm/i,
       }),
     ).toBeInTheDocument();
   });
 
   it("displays CTA buttons", () => {
     render(<Hero />);
-    expect(screen.getByRole("link", { name: /Book a Discovery Call/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /View Projects/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Schedule Your Free Consultation/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /See How Technology Can Transform Your Operation/i })).toBeInTheDocument();
   });
 });
 
