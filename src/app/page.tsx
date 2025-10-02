@@ -11,7 +11,6 @@ import { FaqSection } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/cta";
 import { StrategyPillars } from "@promptcraft/sections/strategy-pillars";
 import { CredibilityStrip } from "@promptcraft/sections/credibility-strip";
-import { ResultsHighlight } from "@promptcraft/sections/results-highlight";
 import { buildMetadata, jsonLdScriptProps, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -46,7 +45,6 @@ export default function HomePage() {
       <StrategyPillars />
       <Logos />
       <FeaturedProjects />
-      <ResultsHighlight />
       <ServicesOverview />
       <Testimonials />
       <FaqSection />
