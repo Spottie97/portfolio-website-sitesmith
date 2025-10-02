@@ -248,23 +248,40 @@ export function AboutSummary() {
             My professional journey from data analyst to head of operations
           </p>
         </div>
-        <div className="max-w-4xl mx-auto">
-          <div className="relative space-y-8 before:absolute before:left-4 before:top-0 before:h-full before:w-[2px] before:bg-gradient-to-b from-primary via-primary/50 to-primary/20 md:pl-12">
-            {timeline.map((item) => (
-              <div key={item.year} className="relative flex gap-6">
-                <div className="absolute left-0 top-3 h-4 w-4 -translate-x-[9px] rounded-full border-2 border-primary bg-background shadow-lg" />
-                <div className="flex-1 space-y-3">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                    <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full w-fit">
-                      {item.year}
-                    </span>
-                    <h3 className="font-semibold text-lg text-foreground">
-                      {item.title}
-                    </h3>
+        <div className="max-w-5xl mx-auto">
+          <div className="relative space-y-12 pl-8 md:pl-0">
+            {/* Vertical line - mobile */}
+            <div className="absolute left-[11px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/50 to-primary/20 md:hidden" />
+            
+            {timeline.map((item, index) => (
+              <div key={item.year} className="relative">
+                {/* Vertical line connecting dots - desktop */}
+                {index < timeline.length - 1 && (
+                  <div className="hidden md:block absolute left-[15px] top-[40px] w-[2px] h-[calc(100%+3rem)] bg-gradient-to-b from-primary/80 to-primary/30" />
+                )}
+                
+                <div className="flex gap-6 md:gap-8 items-start">
+                  {/* Timeline dot */}
+                  <div className="relative flex-shrink-0">
+                    <div className="h-8 w-8 rounded-full border-4 border-primary bg-background shadow-lg ring-4 ring-primary/10 z-10 relative" />
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
+                  
+                  {/* Content */}
+                  <div className="flex-1 space-y-4 pb-4">
+                    <div className="flex flex-col gap-3">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+                        <span className="inline-flex items-center text-sm font-semibold text-primary bg-primary/10 px-4 py-1.5 rounded-full w-fit">
+                          {item.year}
+                        </span>
+                        <h3 className="font-semibold text-lg md:text-xl text-foreground sm:text-right flex-1">
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed text-base">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
