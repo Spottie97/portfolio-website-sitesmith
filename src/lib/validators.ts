@@ -20,7 +20,14 @@ export const contactFormSchema = z.object({
   projectType: z.string().optional(),
   availability: z.string().optional(),
   honeypot: z.string().max(0),
-  elapsed: z.string().optional(),
+  elapsed: z.string().refine(
+    (val) => {
+      if (!val) return true; // Allow empty/undefined for backwards compatibility
+      const time = parseInt(val, 10);
+      return time > 1500;
+    },
+    { message: "Form submitted too quickly" }
+  ),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
