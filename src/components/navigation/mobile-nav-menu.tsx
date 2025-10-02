@@ -91,7 +91,9 @@ export function MobileNavMenu({ accentColor, onNavigate }: MobileNavMenuProps) {
             key={item.href}
             className={`menu__item ${isActive ? 'active' : ''}`}
             onClick={() => handleItemClick(index)}
-            ref={(el) => (itemRefs.current[index] = el)}
+            ref={(el) => {
+              itemRefs.current[index] = el;
+            }}
             style={{ '--lineWidth': '0px' } as React.CSSProperties}
             aria-current={isActive ? 'page' : undefined}
           >
@@ -100,7 +102,9 @@ export function MobileNavMenu({ accentColor, onNavigate }: MobileNavMenuProps) {
             </div>
             <strong
               className={`menu__text ${isActive ? 'active' : ''}`}
-              ref={(el) => (textRefs.current[index] = el)}
+              ref={(el) => {
+                textRefs.current[index] = el;
+              }}
             >
               {item.label}
             </strong>

@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { OrbitingSkills } from "@/components/sections/orbiting-skills";
+import HighlightCard from "@/components/ui/highlight-card";
 
 const softwareStartYear = 2020;
 const agricultureStartYear = 2015;
@@ -49,7 +50,7 @@ export function AboutSummary() {
           A software engineer with deep roots in agriculture, building digital tools that solve real farming challenges. Based in South Africa, I combine agricultural knowledge with modern web technology to create platforms that help farmers optimize operations, increase yields, and make data-driven decisions.
         </p>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          My unique journey from 10 years in agriculture to software engineering means I don't just build technology—I build solutions that make sense in the field. I understand the seasonal pressures, the resource constraints, and most importantly, the real problems that need solving.
+          My unique journey from 10 years in agriculture to software engineering means I don&apos;t just build technology—I build solutions that make sense in the field. I understand the seasonal pressures, the resource constraints, and most importantly, the real problems that need solving.
         </p>
       </div>
 
@@ -96,63 +97,134 @@ export function AboutSummary() {
             Why farms choose someone who truly understands their operations
           </p>
         </div>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid gap-6 md:grid-cols-2">
-            <SpotlightCard>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-start gap-3">
-                    <span className="text-2xl">🌾</span>
-                    <span>Built by Someone Who Gets It</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">
-                  Real agricultural experience combined with cutting-edge technology means practical, not theoretical solutions. I understand why a farmer needs to check irrigation data at 5 AM and how every decision impacts the bottom line.
-                </CardContent>
-              </Card>
-            </SpotlightCard>
-            
-            <SpotlightCard>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-start gap-3">
-                    <span className="text-2xl">💰</span>
-                    <span>ROI That Makes Sense</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">
-                  Precision agriculture delivers an average of $90 per acre in savings. Every solution is designed with clear, measurable returns that justify the investment and pay for themselves.
-                </CardContent>
-              </Card>
-            </SpotlightCard>
-            
-            <SpotlightCard>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-start gap-3">
-                    <span className="text-2xl">📈</span>
-                    <span>Scalable Solutions</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">
-                  From family farms to large commercial operations, solutions that grow with your business. Start with what you need now, scale as you expand.
-                </CardContent>
-              </Card>
-            </SpotlightCard>
-            
-            <SpotlightCard>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-start gap-3">
-                    <span className="text-2xl">🌍</span>
-                    <span>Global Reach, Personal Service</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">
-                  Available for consultations across all time zones. Cost-effective development without compromising quality, serving progressive farms worldwide.
-                </CardContent>
-              </Card>
-            </SpotlightCard>
+        <div className="relative w-full overflow-hidden">
+          <style>{`
+            @keyframes scroll-cards {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+
+            .cards-scroll {
+              animation: scroll-cards 30s linear infinite;
+            }
+
+            .cards-scroll:hover {
+              animation-play-state: paused;
+            }
+
+            .scroll-container-cards {
+              mask: linear-gradient(
+                90deg,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+              );
+              -webkit-mask: linear-gradient(
+                90deg,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+              );
+            }
+          `}</style>
+          
+          <div className="scroll-container-cards w-full py-8">
+            <div className="cards-scroll flex gap-8 w-max">
+              <HighlightCard
+                icon={<span className="text-5xl">🌾</span>}
+                title="Built by Someone Who Gets It"
+                description={[
+                  "Real agricultural experience combined with cutting-edge technology means practical, not theoretical solutions.",
+                  "I understand why a farmer needs to check irrigation data at 5 AM and how every decision impacts the bottom line."
+                ]}
+                accentColor="#10b981"
+                secondaryColor="#14b885"
+              />
+              
+              <HighlightCard
+                icon={<span className="text-5xl">💰</span>}
+                title="ROI That Makes Sense"
+                description={[
+                  "Precision agriculture delivers an average of $90 per acre in savings.",
+                  "Every solution is designed with clear, measurable returns that justify the investment and pay for themselves."
+                ]}
+                accentColor="#059669"
+                secondaryColor="#10b981"
+              />
+              
+              <HighlightCard
+                icon={<span className="text-5xl">📈</span>}
+                title="Scalable Solutions"
+                description={[
+                  "From family farms to large commercial operations, solutions that grow with your business.",
+                  "Start with what you need now, scale as you expand."
+                ]}
+                accentColor="#10b981"
+                secondaryColor="#34d399"
+              />
+              
+              <HighlightCard
+                icon={<span className="text-5xl">🌍</span>}
+                title="Global Reach, Personal Service"
+                description={[
+                  "Available for consultations across all time zones.",
+                  "Cost-effective development without compromising quality, serving progressive farms worldwide."
+                ]}
+                accentColor="#059669"
+                secondaryColor="#14b885"
+              />
+              
+              {/* Duplicate cards for seamless loop */}
+              <HighlightCard
+                icon={<span className="text-5xl">🌾</span>}
+                title="Built by Someone Who Gets It"
+                description={[
+                  "Real agricultural experience combined with cutting-edge technology means practical, not theoretical solutions.",
+                  "I understand why a farmer needs to check irrigation data at 5 AM and how every decision impacts the bottom line."
+                ]}
+                accentColor="#10b981"
+                secondaryColor="#14b885"
+              />
+              
+              <HighlightCard
+                icon={<span className="text-5xl">💰</span>}
+                title="ROI That Makes Sense"
+                description={[
+                  "Precision agriculture delivers an average of $90 per acre in savings.",
+                  "Every solution is designed with clear, measurable returns that justify the investment and pay for themselves."
+                ]}
+                accentColor="#059669"
+                secondaryColor="#10b981"
+              />
+              
+              <HighlightCard
+                icon={<span className="text-5xl">📈</span>}
+                title="Scalable Solutions"
+                description={[
+                  "From family farms to large commercial operations, solutions that grow with your business.",
+                  "Start with what you need now, scale as you expand."
+                ]}
+                accentColor="#10b981"
+                secondaryColor="#34d399"
+              />
+              
+              <HighlightCard
+                icon={<span className="text-5xl">🌍</span>}
+                title="Global Reach, Personal Service"
+                description={[
+                  "Available for consultations across all time zones.",
+                  "Cost-effective development without compromising quality, serving progressive farms worldwide."
+                ]}
+                accentColor="#059669"
+                secondaryColor="#14b885"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -95,7 +95,7 @@ export function Hero() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: [0, 0, 0.2, 1] as const,
         staggerChildren: 0.1,
       },
     },
@@ -106,7 +106,7 @@ export function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: { duration: 0.4, ease: [0, 0, 0.2, 1] as const },
     },
   };
 

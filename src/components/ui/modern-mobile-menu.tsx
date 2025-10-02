@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Home, Briefcase, Calendar, Shield, Settings } from 'lucide-react';
 
-type IconComponentType = React.ElementType<{ className?: string }>;
+export type IconComponentType = React.ElementType<{ className?: string }>;
 export interface InteractiveMenuItem {
   label: string;
   icon: IconComponentType;
@@ -90,7 +90,9 @@ const InteractiveMenu: React.FC<InteractiveMenuProps> = ({ items, accentColor })
             key={item.label}
             className={`menu__item ${isActive ? 'active' : ''}`}
             onClick={() => handleItemClick(index)}
-            ref={(el) => (itemRefs.current[index] = el)}
+            ref={(el) => {
+              itemRefs.current[index] = el;
+            }}
             style={{ '--lineWidth': '0px' } as React.CSSProperties} 
           >
             <div className="menu__icon">
@@ -98,7 +100,9 @@ const InteractiveMenu: React.FC<InteractiveMenuProps> = ({ items, accentColor })
             </div>
             <strong
               className={`menu__text ${isTextActive ? 'active' : ''}`}
-              ref={(el) => (textRefs.current[index] = el)}
+              ref={(el) => {
+                textRefs.current[index] = el;
+              }}
             >
               {item.label}
             </strong>

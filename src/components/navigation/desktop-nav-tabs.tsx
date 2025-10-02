@@ -64,7 +64,9 @@ export function DesktopNavTabs() {
       {NAV_LINKS.map((link, i) => (
         <Tab
           key={link.href}
-          ref={(el: HTMLLIElement | null) => (tabsRef.current[i] = el)}
+          ref={(el: HTMLLIElement | null) => {
+            tabsRef.current[i] = el;
+          }}
           setPosition={setPosition}
           onClick={() => handleTabClick(i)}
           isSelected={selected === i}

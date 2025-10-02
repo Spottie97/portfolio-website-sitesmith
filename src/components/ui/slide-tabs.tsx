@@ -9,7 +9,7 @@ export const SlideTabs = () => {
   });
   // State to track the currently selected tab, defaulting to the first tab (index 0)
   const [selected, setSelected] = useState(0);
-  const tabsRef = useRef([]);
+  const tabsRef = useRef<(HTMLLIElement | null)[]>([]);
 
   // This effect runs when the component mounts or when the selected tab changes.
   // It calculates the position of the selected tab and sets the cursor.
@@ -46,7 +46,9 @@ export const SlideTabs = () => {
       {["Home", "Pricing", "Features", "Docs", "Blog"].map((tab, i) => (
          <Tab
             key={tab}
-            ref={(el) => (tabsRef.current[i] = el)}
+            ref={(el) => {
+              tabsRef.current[i] = el;
+            }}
             setPosition={setPosition}
             onClick={() => setSelected(i)}
           >
@@ -60,18 +62,25 @@ export const SlideTabs = () => {
 };
 
 // The Tab component is wrapped in forwardRef to accept a ref from its parent.
-const Tab = React.forwardRef(({ children, setPosition, onClick }, ref) => {
+interface TabProps {
+  children: React.ReactNode;
+  setPosition: (position: { left: number; width: number; opacity: number }) => void;
+  onClick: () => void;
+}
+
+const Tab = React.forwardRef<HTMLLIElement, TabProps>(({ children, setPosition, onClick }, ref) => {
   return (
     <li
       ref={ref}
       onClick={onClick}
-      onMouseEnter={() => {
-        if (!ref?.current) return;
+      onMouseEnter={(e) => {
+        const target = e.currentTarget;
+        if (!target) return;
 
-        const { width } = ref.current.getBoundingClientRect();
+        const { width } = target.getBoundingClientRect();
 
         setPosition({
-          left: ref.current.offsetLeft,
+          left: target.offsetLeft,
           width,
           opacity: 1,
         });
@@ -83,8 +92,18 @@ const Tab = React.forwardRef(({ children, setPosition, onClick }, ref) => {
   );
 });
 
+Tab.displayName = "Tab";
 
-const Cursor = ({ position }) => {
+
+interface CursorProps {
+  position: {
+    left: number;
+    width: number;
+    opacity: number;
+  };
+}
+
+const Cursor = ({ position }: CursorProps) => {
   return (
     <motion.li
       animate={{
