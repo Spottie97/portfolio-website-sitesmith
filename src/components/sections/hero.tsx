@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 import {
   PRIMARY_CTA,
@@ -12,7 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
+  // Reduced from 36 to 18 paths for better performance
+  const paths = useMemo(() => Array.from({ length: 18 }, (_, i) => ({
     id: i,
     d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
       380 - i * 5 * position
@@ -21,35 +23,41 @@ function FloatingPaths({ position }: { position: number }) {
     } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
       684 - i * 5 * position
     } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-    width: 0.5 + i * 0.03,
-  }));
+    width: 0.5 + i * 0.05,
+    opacity: 0.15 + i * 0.04,
+  })), [position]);
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute inset-0 pointer-events-none opacity-40">
       <svg
         className="w-full h-full text-slate-950 dark:text-white"
         viewBox="0 0 696 316"
         fill="none"
+        style={{ willChange: 'opacity' }}
       >
         <title>Background Paths</title>
-        {paths.map((path) => (
-          <motion.path
+        <defs>
+          <style>{`
+            @keyframes pathFade {
+              0%, 100% { opacity: 0.3; }
+              50% { opacity: 0.6; }
+            }
+            .animated-path {
+              animation: pathFade 25s ease-in-out infinite;
+            }
+          `}</style>
+        </defs>
+        {paths.map((path, index) => (
+          <path
             key={path.id}
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.03}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
-            animate={{
-              pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
-            }}
-            transition={{
-              duration: 20 + Math.random() * 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
+            strokeOpacity={path.opacity}
+            fill="none"
+            className="animated-path"
+            style={{
+              animationDelay: `${index * 0.5}s`,
             }}
           />
         ))}
