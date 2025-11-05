@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 export function DesktopNavTabs() {
   const pathname = usePathname();
@@ -105,7 +106,10 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
             opacity: 1,
           });
         }}
-        className="relative z-10 block cursor-pointer px-4 py-2 text-sm font-medium mix-blend-difference text-white transition-colors"
+        className={cn(
+          "relative z-10 block cursor-pointer px-4 py-2 text-sm font-medium transition-colors",
+          isSelected ? "text-white font-semibold" : "text-muted-foreground hover:text-foreground"
+        )}
         aria-current={isSelected ? 'page' : undefined}
       >
         {children}
@@ -135,7 +139,7 @@ const Cursor = ({ position }: CursorProps) => {
         stiffness: 500,
         damping: 30,
       }}
-      className="absolute z-0 top-1 bottom-1 rounded-full bg-foreground"
+      className="absolute z-0 top-1 bottom-1 rounded-full bg-primary"
     />
   );
 };

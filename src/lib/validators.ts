@@ -20,7 +20,18 @@ export const contactFormSchema = z.object({
   projectType: z.string().optional(),
   availability: z.string().optional(),
   honeypot: z.string().max(0),
-  elapsed: z.string().optional(), // Keep field for backwards compatibility but don't validate
+  elapsed: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (!val) return true;
+        const elapsedMs = parseInt(val, 10);
+        // Reject submissions faster than 1 second (likely bots)
+        return elapsedMs >= 1000;
+      },
+      { message: "Submission too fast" }
+    ),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
