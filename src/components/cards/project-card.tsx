@@ -105,9 +105,9 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
                 </Link>
               </Button>
             )}
-            {project.liveUrl && (
+            {project.live && (
               <Button asChild variant="ghost" size="icon" className="h-9 w-9">
-                <Link href={project.liveUrl} target="_blank" rel="noreferrer" aria-label="View live site">
+                <Link href={project.live} target="_blank" rel="noreferrer" aria-label="View live site">
                   <ExternalLink className="w-4 h-4" />
                 </Link>
               </Button>
