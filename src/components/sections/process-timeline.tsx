@@ -47,7 +47,7 @@ export function ProcessTimeline() {
       y: 0,
       transition: {
         duration: prefersReducedMotion ? 0 : 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   };

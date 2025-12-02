@@ -1,31 +1,18 @@
+"use client";
+
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/cards/project-card";
 
 export function CaseStudiesGrid() {
   return (
-    <section className="py-16">
+    <section className="py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="space-y-8">
-          <div className="space-y-4 max-w-3xl">
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Proven Results in Real-World Conditions
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Every business has unique challenges. These case studies show how custom technology addresses real problems with measurable results—from reducing operational burdens to increasing customer engagement and optimizing workflows.
-            </p>
-            <p className="text-muted-foreground">
-              <strong>Built, tested, and proven in production environments.</strong> Each project includes the challenge faced, solution implemented, and concrete impact delivered.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-

@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 
 import { buildMetadata } from "@/lib/seo";
+import { ProjectsHero } from "@/components/sections/projects-hero";
 import { CaseStudiesGrid } from "@/components/sections/case-studies-grid";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Projects & Case Studies",
+  title: "Work & Case Studies",
   description:
-    "Real case studies with measurable results: custom web applications, business automation platforms, and e-commerce solutions. See how technology solves real business challenges with proven ROI.",
+    "Explore real-world projects with measurable results. From custom web applications to business automation platforms—see how modern technology solves real business challenges.",
   path: "/projects",
 });
 
 export default function ProjectsPage() {
-  return <CaseStudiesGrid />;
+  return (
+    <>
+      <ProjectsHero />
+      <CaseStudiesGrid />
+    </>
+  );
 }
-
