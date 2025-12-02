@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Code, Database, Zap, Terminal, BarChart3, Settings, Leaf } from "lucide-react";
+import { Code, Database, Zap, Terminal, BarChart3, Settings } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
@@ -79,11 +79,11 @@ export function OrbitingSkills({
     },
     {
       id: 8,
-      name: "AgTech",
-      category: "Agriculture",
-      icon: Leaf,
-      proficiency: 88,
-      description: "Agricultural technology solutions and farm management systems",
+      name: "Cloud & DevOps",
+      category: "Infrastructure",
+      icon: Zap,
+      proficiency: 85,
+      description: "Cloud deployment, CI/CD pipelines, and infrastructure management",
     },
   ],
 }: OrbitingSkillsProps) {

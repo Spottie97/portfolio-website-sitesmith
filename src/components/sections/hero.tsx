@@ -125,11 +125,11 @@ export function Hero() {
             </Badge>
             
             <h1 className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-              Digital Solutions That Grow With Your Farm
+              Building Digital Products That Scale
             </h1>
             
             <p className="text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
-              Custom web applications and automation built by someone who understands both agriculture and technology. With a decade of hands-on farming experience and proven software expertise, I bridge the gap between your fields and modern technology—specializing in precision farming apps, data-driven insights, and agricultural automation.
+              Full-stack developer specializing in modern web applications, business automation, and custom software solutions. I help startups and businesses turn complex problems into elegant, scalable digital products.
             </p>
             
             <div className="flex flex-col gap-3 sm:flex-row justify-center">
@@ -171,14 +171,14 @@ export function Hero() {
             variants={itemVariants}
             className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
           >
-            Digital Solutions That Grow With Your Farm
+            Building Digital Products That Scale
           </motion.h1>
           
           <motion.p 
             variants={itemVariants}
             className="text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto"
           >
-            Custom web applications and automation built by someone who understands both agriculture and technology. With a decade of hands-on farming experience and proven software expertise, I bridge the gap between your fields and modern technology—specializing in precision farming apps, data-driven insights, and agricultural automation.
+            Full-stack developer specializing in modern web applications, business automation, and custom software solutions. I help startups and businesses turn complex problems into elegant, scalable digital products.
           </motion.p>
           
           <motion.div 

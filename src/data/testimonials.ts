@@ -8,28 +8,24 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Pieter van der Merwe",
-    role: "Farm Manager",
-    company: "Green Valley Farms",
+    name: "Michael Chen",
+    role: "Founder & CEO",
+    company: "TechStart Solutions",
     quote:
-      "FarmFlow completely transformed how we manage our 5 properties. We're making data-driven decisions that have increased our yield by 35% and reduced water usage significantly.",
+      "The web application completely transformed how we manage our operations. We're making data-driven decisions that have increased our efficiency by 35% and reduced manual overhead significantly.",
   },
   {
     name: "Sarah Thompson",
     role: "Operations Director",
-    company: "Harvest Co-op",
+    company: "Logistics Plus",
     quote:
-      "The IoT integration and predictive analytics have been game-changing. We caught a disease outbreak 2 weeks earlier than we would have visually, saving an entire season's crop.",
+      "The real-time tracking system and automation have been game-changing. We caught process bottlenecks 2 weeks earlier than we would have manually, saving significant time and resources.",
   },
   {
-    name: "Johan Botha",
-    role: "Agricultural Consultant",
-    company: "AgriConsult ZA",
+    name: "David Kruger",
+    role: "Technical Lead",
+    company: "Digital Ventures",
     quote:
-      "Working with a developer who truly understands both agriculture and technology is rare. The solutions are practical, field-tested, and actually solve real farming problems.",
+      "Working with a developer who truly understands both business operations and technology is rare. The solutions are practical, production-tested, and actually solve real business problems.",
   },
 ];
-
-
-
-

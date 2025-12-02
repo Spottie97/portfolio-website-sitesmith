@@ -6,16 +6,14 @@ import { OrbitingSkills } from "@/components/sections/orbiting-skills";
 import HighlightCard from "@/components/ui/highlight-card";
 
 const softwareStartYear = 2020;
-const agricultureStartYear = 2015;
 const softwareExperienceYears = dayjs().year() - softwareStartYear;
-const agricultureExperienceYears = dayjs().year() - agricultureStartYear;
 
 const timeline = [
   {
     year: "Oct 2024 – Present",
     title: "Head of Operations - Food Fair Pty Ltd",
     description:
-      "Lead operations across three factories while overseeing the entire Data Analytics function. Serve as the lead for AgTech implementation and own the company's technology integrations and IT infrastructure. Within a broader family group of businesses, I direct software, networking, AI integration, web development, and analytics standards to ensure scalable, secure, and interoperable systems across the portfolio.",
+      "Lead operations across three factories while overseeing the entire Data Analytics function. Serve as the lead for technology implementation and own the company's integrations and IT infrastructure. Within a broader family group of businesses, I direct software, networking, AI integration, web development, and analytics standards to ensure scalable, secure, and interoperable systems across the portfolio.",
   },
   {
     year: "Jun 2024 – Sep 2024",
@@ -47,10 +45,10 @@ export function AboutSummary() {
           Hello, I&apos;m <span className="text-primary">Reinhardt Erasmus</span>
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          A software engineer with deep roots in agriculture, building digital tools that solve real farming challenges. Based in South Africa, I combine agricultural knowledge with modern web technology to create platforms that help farmers optimize operations, increase yields, and make data-driven decisions.
+          A full-stack developer passionate about building digital products that solve real business problems. Based in South Africa, I combine operational experience with modern web technology to create platforms that help businesses scale, automate processes, and make data-driven decisions.
         </p>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          My unique journey from 10 years in agriculture to software engineering means I don&apos;t just build technology—I build solutions that make sense in the field. I understand the seasonal pressures, the resource constraints, and most importantly, the real problems that need solving.
+          My journey from operations management to software engineering means I don&apos;t just build technology—I build solutions that make sense for real-world business needs. I understand operational pressures, resource constraints, and most importantly, the problems that actually need solving.
         </p>
       </div>
 
@@ -68,8 +66,8 @@ export function AboutSummary() {
                 <div className="text-sm text-muted-foreground">Years in Software Engineering</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">{agricultureExperienceYears}+</div>
-                <div className="text-sm text-muted-foreground">Years in Agriculture</div>
+                <div className="text-3xl font-bold text-primary">10+</div>
+                <div className="text-sm text-muted-foreground">Projects Delivered</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-primary">3</div>
@@ -78,10 +76,10 @@ export function AboutSummary() {
             </div>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                <strong>Understanding the real challenges farmers face daily.</strong> Uniquely positioned to build solutions that work in the real world of farming, with deep understanding of both agricultural operations and modern software architecture.
+                <strong>Understanding the real challenges businesses face daily.</strong> Uniquely positioned to build solutions that work in the real world, with deep understanding of both business operations and modern software architecture.
               </p>
               <p>
-                Specializing in precision agriculture, IoT integration, data analytics, and platforms that work reliably in field conditions with varying connectivity. <strong>Built for the unique demands of agricultural operations.</strong>
+                Specializing in full-stack development, real-time systems, data analytics, and platforms that work reliably under production load. <strong>Built for the unique demands of growing businesses.</strong>
               </p>
             </div>
           </CardContent>
@@ -92,9 +90,9 @@ export function AboutSummary() {
       {/* Why Choose Me Section */}
       <div className="space-y-8">
         <div className="text-center">
-          <h2 className="text-3xl font-semibold mb-4">The Agricultural Technology Advantage</h2>
+          <h2 className="text-3xl font-semibold mb-4">The Developer Advantage</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Why farms choose someone who truly understands their operations
+            Why businesses choose someone who truly understands their operations
           </p>
         </div>
         <div className="relative w-full overflow-hidden">
@@ -137,36 +135,36 @@ export function AboutSummary() {
           <div className="scroll-container-cards w-full py-8">
             <div className="cards-scroll flex gap-8 w-max">
               <HighlightCard
-                icon={<span className="text-5xl">🌾</span>}
+                icon={<span className="text-5xl">🚀</span>}
                 title="Built by Someone Who Gets It"
                 description={[
-                  "Real agricultural experience combined with cutting-edge technology means practical, not theoretical solutions.",
-                  "I understand why a farmer needs to check irrigation data at 5 AM and how every decision impacts the bottom line."
+                  "Real operational experience combined with cutting-edge technology means practical, not theoretical solutions.",
+                  "I understand why a business owner needs real-time dashboards and how every feature impacts the bottom line."
                 ]}
-                accentColor="#10b981"
-                secondaryColor="#14b885"
+                accentColor="#8b5cf6"
+                secondaryColor="#a78bfa"
               />
               
               <HighlightCard
                 icon={<span className="text-5xl">💰</span>}
                 title="ROI That Makes Sense"
                 description={[
-                  "Precision agriculture delivers an average of $90 per acre in savings.",
+                  "Business automation can reduce operational costs by 30-50%.",
                   "Every solution is designed with clear, measurable returns that justify the investment and pay for themselves."
                 ]}
-                accentColor="#059669"
-                secondaryColor="#10b981"
+                accentColor="#7c3aed"
+                secondaryColor="#8b5cf6"
               />
               
               <HighlightCard
                 icon={<span className="text-5xl">📈</span>}
                 title="Scalable Solutions"
                 description={[
-                  "From family farms to large commercial operations, solutions that grow with your business.",
+                  "From startups to established enterprises, solutions that grow with your business.",
                   "Start with what you need now, scale as you expand."
                 ]}
-                accentColor="#10b981"
-                secondaryColor="#34d399"
+                accentColor="#8b5cf6"
+                secondaryColor="#a78bfa"
               />
               
               <HighlightCard
@@ -174,44 +172,44 @@ export function AboutSummary() {
                 title="Global Reach, Personal Service"
                 description={[
                   "Available for consultations across all time zones.",
-                  "Cost-effective development without compromising quality, serving progressive farms worldwide."
+                  "Cost-effective development without compromising quality, serving ambitious businesses worldwide."
                 ]}
-                accentColor="#059669"
-                secondaryColor="#14b885"
+                accentColor="#7c3aed"
+                secondaryColor="#a78bfa"
               />
               
               {/* Duplicate cards for seamless loop */}
               <HighlightCard
-                icon={<span className="text-5xl">🌾</span>}
+                icon={<span className="text-5xl">🚀</span>}
                 title="Built by Someone Who Gets It"
                 description={[
-                  "Real agricultural experience combined with cutting-edge technology means practical, not theoretical solutions.",
-                  "I understand why a farmer needs to check irrigation data at 5 AM and how every decision impacts the bottom line."
+                  "Real operational experience combined with cutting-edge technology means practical, not theoretical solutions.",
+                  "I understand why a business owner needs real-time dashboards and how every feature impacts the bottom line."
                 ]}
-                accentColor="#10b981"
-                secondaryColor="#14b885"
+                accentColor="#8b5cf6"
+                secondaryColor="#a78bfa"
               />
               
               <HighlightCard
                 icon={<span className="text-5xl">💰</span>}
                 title="ROI That Makes Sense"
                 description={[
-                  "Precision agriculture delivers an average of $90 per acre in savings.",
+                  "Business automation can reduce operational costs by 30-50%.",
                   "Every solution is designed with clear, measurable returns that justify the investment and pay for themselves."
                 ]}
-                accentColor="#059669"
-                secondaryColor="#10b981"
+                accentColor="#7c3aed"
+                secondaryColor="#8b5cf6"
               />
               
               <HighlightCard
                 icon={<span className="text-5xl">📈</span>}
                 title="Scalable Solutions"
                 description={[
-                  "From family farms to large commercial operations, solutions that grow with your business.",
+                  "From startups to established enterprises, solutions that grow with your business.",
                   "Start with what you need now, scale as you expand."
                 ]}
-                accentColor="#10b981"
-                secondaryColor="#34d399"
+                accentColor="#8b5cf6"
+                secondaryColor="#a78bfa"
               />
               
               <HighlightCard
@@ -219,10 +217,10 @@ export function AboutSummary() {
                 title="Global Reach, Personal Service"
                 description={[
                   "Available for consultations across all time zones.",
-                  "Cost-effective development without compromising quality, serving progressive farms worldwide."
+                  "Cost-effective development without compromising quality, serving ambitious businesses worldwide."
                 ]}
-                accentColor="#059669"
-                secondaryColor="#14b885"
+                accentColor="#7c3aed"
+                secondaryColor="#a78bfa"
               />
             </div>
           </div>
@@ -292,5 +290,4 @@ export function AboutSummary() {
     </section>
   );
 }
-
 

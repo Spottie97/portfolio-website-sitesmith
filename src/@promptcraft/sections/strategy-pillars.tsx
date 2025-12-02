@@ -7,17 +7,17 @@ const pillars = [
   {
     title: "Grounded Discovery",
     description:
-      "Every engagement starts with field interviews and data capture to surface bottlenecks, seasonality risks, and regulatory pressures before writing a line of code.",
+      "Every engagement starts with stakeholder interviews and data capture to surface bottlenecks, scalability risks, and business constraints before writing a line of code.",
   },
   {
     title: "Operational Analytics",
     description:
-      "We wire up telemetry, dashboards, and alerting that keep managers in control—from cold chain compliance to irrigation scheduling and packhouse throughput.",
+      "We wire up telemetry, dashboards, and alerting that keep managers in control—from performance metrics to workflow optimization and real-time monitoring.",
   },
   {
     title: "Human-Centred Systems",
     description:
-      "Tools are deployed with farmer training, SOPs, and offline-safe workflows so teams adopt the platform and trust the data during harvest pressure.",
+      "Tools are deployed with team training, SOPs, and reliable workflows so teams adopt the platform and trust the data during peak demand.",
   },
 ];
 
@@ -33,10 +33,10 @@ export function StrategyPillars() {
               Methodology
             </p>
             <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
-              Built for the realities of modern agriculture
+              Built for the realities of modern business
             </h2>
             <p className="mx-auto max-w-3xl text-pretty text-lg text-muted-foreground">
-              From discovery to deployment, every project combines agronomy context with software delivery best practices so your team gets platforms that stay reliable through droughts, load shedding, and peak season demand.
+              From discovery to deployment, every project combines business context with software delivery best practices so your team gets platforms that stay reliable through growth, scale, and peak demand.
             </p>
           </div>
 

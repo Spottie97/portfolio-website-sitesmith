@@ -10,9 +10,9 @@ interface SpotlightCardProps {
 }
 
 const glowColorMap = {
-  primary: { base: 142, spread: 30 },   // Green - your primary color
-  accent: { base: 142, spread: 40 },    // Slightly more varied green
-  muted: { base: 142, spread: 20 }      // Subtle green variation
+  primary: { base: 290, spread: 30 },   // Purple - your primary color
+  accent: { base: 300, spread: 40 },    // Magenta accent
+  muted: { base: 290, spread: 20 }      // Subtle purple variation
 };
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({ 
@@ -58,7 +58,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
         var(--spotlight-size) var(--spotlight-size) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 142) calc(var(--saturation, 60) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.08)), transparent
+        hsl(var(--hue, 290) calc(var(--saturation, 60) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.08)), transparent
       )`,
       backgroundColor: 'var(--backdrop, transparent)',
       backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
@@ -92,7 +92,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
         calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 142) calc(var(--saturation, 70) * 1%) calc(var(--lightness, 55) * 1%) / var(--border-spot-opacity, 0.7)), transparent 100%
+        hsl(var(--hue, 290) calc(var(--saturation, 70) * 1%) calc(var(--lightness, 55) * 1%) / var(--border-spot-opacity, 0.7)), transparent 100%
       );
       filter: brightness(1.3);
     }
@@ -102,7 +102,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
         calc(var(--spotlight-size) * 0.4) calc(var(--spotlight-size) * 0.4) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(142 60% 90% / var(--border-light-opacity, 0.4)), transparent 100%
+        hsl(290 60% 90% / var(--border-light-opacity, 0.4)), transparent 100%
       );
     }
     

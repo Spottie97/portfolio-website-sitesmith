@@ -13,13 +13,13 @@ export function FinalCta() {
           <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold">
-                Every Farm Has Unique Challenges
+                Every Business Has Unique Challenges
               </CardTitle>
               <p className="text-base text-muted-foreground">
-                Let&apos;s discuss how custom technology can address yours. Whether you&apos;re looking to automate routine tasks, make better use of your data, or build a complete digital management system—I speak both agriculture and technology.
+                Let&apos;s discuss how custom technology can address yours. Whether you&apos;re looking to automate routine tasks, make better use of your data, or build a complete digital platform—I bridge the gap between business needs and technical execution.
               </p>
               <p className="text-sm text-muted-foreground pt-2">
-                <strong>Available across all time zones.</strong> Supporting progressive farms worldwide with practical solutions that make sense for your operation.
+                <strong>Available across all time zones.</strong> Supporting ambitious businesses worldwide with practical solutions that deliver real results.
               </p>
             </CardHeader>
             <CardContent>

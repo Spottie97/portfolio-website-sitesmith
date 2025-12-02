@@ -14,9 +14,9 @@ import { CredibilityStrip } from "@promptcraft/sections/credibility-strip";
 import { buildMetadata, jsonLdScriptProps, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Agricultural Technology Specialist",
+  title: "Full Stack Developer & Technical Consultant",
   description:
-    "Digital solutions that grow with your farm. 10 years of agricultural experience meets modern software development. Custom farm management systems, precision agriculture apps, IoT integration, and automation built by someone who understands real farming challenges.",
+    "Building scalable web applications and business automation solutions. Expert in Next.js, React, and Cloud Architecture. Transforming complex business requirements into elegant digital products.",
   path: "/",
 });
 

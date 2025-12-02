@@ -8,13 +8,13 @@ export function CaseStudiesGrid() {
         <div className="space-y-8">
           <div className="space-y-4 max-w-3xl">
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Proven Results in Real Farming Conditions
+              Proven Results in Real-World Conditions
             </h2>
             <p className="text-lg text-muted-foreground">
-              Every farm has unique challenges. These case studies show how custom technology addresses real problems with measurable results—from reducing daily reporting burdens to increasing customer inquiries and optimizing operations.
+              Every business has unique challenges. These case studies show how custom technology addresses real problems with measurable results—from reducing operational burdens to increasing customer engagement and optimizing workflows.
             </p>
             <p className="text-muted-foreground">
-              <strong>Built, tested, and proven in actual agricultural operations.</strong> Each project includes the challenge faced, solution implemented, and concrete impact delivered.
+              <strong>Built, tested, and proven in production environments.</strong> Each project includes the challenge faced, solution implemented, and concrete impact delivered.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">

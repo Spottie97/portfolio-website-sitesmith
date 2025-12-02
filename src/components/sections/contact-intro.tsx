@@ -2,9 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const highlights = [
-  "10 years of agricultural experience meets modern software development",
-  "Solutions built to work reliably in field conditions with offline support",
-  "Available for consultations across all time zones—supporting farms worldwide",
+  "Full-stack expertise from frontend to cloud infrastructure",
+  "Solutions built to scale with your business growth",
+  "Available for consultations across all time zones—serving clients worldwide",
 ];
 
 export function ContactIntro() {
@@ -13,10 +13,10 @@ export function ContactIntro() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl space-y-6">
       <div className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-          Let&apos;s discuss your farm&apos;s digital future
+          Let&apos;s discuss your next project
         </h1>
         <p className="text-lg text-muted-foreground">
-          Share your farming challenges, operational goals, and vision—we&apos;ll design a solution that fits your land, your workflow, and your budget.
+          Share your business challenges, goals, and vision—we&apos;ll design a solution that fits your needs, your workflow, and your budget.
         </p>
       </div>
 
