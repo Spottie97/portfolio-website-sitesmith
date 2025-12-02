@@ -7,7 +7,7 @@ import { AboutSummary } from "@/components/sections/about-summary";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Meet Reinhardt Erasmus: Full-stack developer with operational experience building scalable web applications and business automation solutions. Available for projects worldwide.",
+    "Meet Reinhardt Erasmus—a full-stack developer who bridges the gap between business operations and modern technology. From managing factory operations to building scalable web applications, I bring a unique perspective to every project.",
   path: "/about",
 });
 
@@ -19,8 +19,3 @@ export default function AboutPage() {
     </>
   );
 }
-
-
-
-
-

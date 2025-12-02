@@ -12,21 +12,21 @@ export function ServicesOverview() {
           <div className="mx-auto flex max-w-4xl flex-col gap-6 text-left md:items-center md:text-center">
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-                Engagement models that meet operations where they are
+                Services tailored to your business needs
               </h2>
               <p className="text-muted-foreground">
-                Packages cover quick wins like SEO audits, go-to-market site launches, AI co-pilots, and multi-module platforms—each scoped for agricultural realities.
+                From full-stack development to technical consultation—each service is designed to deliver measurable results and long-term value.
               </p>
             </div>
             <div className="flex w-full justify-start md:justify-center">
               <Button asChild variant="ghost">
-                <Link href="/services">Explore the full offering</Link>
+                <Link href="/services">Explore all services</Link>
               </Button>
             </div>
           </div>
           <div className="grid w-full gap-6 md:grid-cols-3">
-            {servicePackages.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+            {servicePackages.map((service, index) => (
+              <ServiceCard key={service.slug} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -34,5 +34,3 @@ export function ServicesOverview() {
     </section>
   );
 }
-
-

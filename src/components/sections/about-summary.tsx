@@ -1,293 +1,42 @@
-import dayjs from "dayjs";
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { AboutHero } from "@/components/sections/about-hero";
+import { AboutJourney } from "@/components/sections/about-journey";
+import { AboutValues } from "@/components/sections/about-values";
 import { OrbitingSkills } from "@/components/sections/orbiting-skills";
-import HighlightCard from "@/components/ui/highlight-card";
-
-const softwareStartYear = 2020;
-const softwareExperienceYears = dayjs().year() - softwareStartYear;
-
-const timeline = [
-  {
-    year: "Oct 2024 – Present",
-    title: "Head of Operations - Food Fair Pty Ltd",
-    description:
-      "Lead operations across three factories while overseeing the entire Data Analytics function. Serve as the lead for technology implementation and own the company's integrations and IT infrastructure. Within a broader family group of businesses, I direct software, networking, AI integration, web development, and analytics standards to ensure scalable, secure, and interoperable systems across the portfolio.",
-  },
-  {
-    year: "Jun 2024 – Sep 2024",
-    title: "Full‑stack Engineer (Contract) - MethodData (US)",
-    description:
-      "Delivered end‑to‑end features in a React/TypeScript front end with a Node.js back end. Work included typed APIs, component libraries, and CI/CD improvements aligned to current TypeScript and React guidance.",
-  },
-  {
-    year: "Feb 2023 – Jun 2024",
-    title: "Backend Engineer - Talent Digital Art",
-    description:
-      "Contributed to backend systems for the studio's first shipped title, Super Dragon Punch Force 3, a cross‑platform 2.5D fighting game launched in open beta on PC and mobile. Responsibilities included API design, auth, matchmaking and live‑ops support in a service-oriented stack. SDPF3 is published by the South African studio Talent Digital Art and is available on Steam and mobile stores, with coverage from gaming press and platforms highlighting the launch and tie‑in to the film Boy Kills World.",
-  },
-  {
-    year: "Jan 2020 – Feb 2023",
-    title: "Data Analyst & IT Manager - Food Fair Pty Ltd",
-    description:
-      "Built and maintained the company's data and IT backbone across manufacturing sites, enabling reporting, analytics, and operational visibility. Introduced process automation and basic BI to improve decision-making and uptime.",
-  },
-];
+import { motion } from "framer-motion";
 
 export function AboutSummary() {
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl space-y-20">
+    <>
       {/* Hero Section */}
-      <div className="text-center space-y-6 max-w-4xl mx-auto">
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-          Hello, I&apos;m <span className="text-primary">Reinhardt Erasmus</span>
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          A full-stack developer passionate about building digital products that solve real business problems. Based in South Africa, I combine operational experience with modern web technology to create platforms that help businesses scale, automate processes, and make data-driven decisions.
-        </p>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          My journey from operations management to software engineering means I don&apos;t just build technology—I build solutions that make sense for real-world business needs. I understand operational pressures, resource constraints, and most importantly, the problems that actually need solving.
-        </p>
-      </div>
+      <AboutHero />
 
-      {/* Snapshot Card */}
-      <div className="max-w-4xl mx-auto">
-        <SpotlightCard>
-          <Card className="border-0">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Professional Snapshot</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6 text-center">
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">{softwareExperienceYears}+</div>
-                <div className="text-sm text-muted-foreground">Years in Software Engineering</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">10+</div>
-                <div className="text-sm text-muted-foreground">Projects Delivered</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">3</div>
-                <div className="text-sm text-muted-foreground">Factories Managed</div>
-              </div>
-            </div>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                <strong>Understanding the real challenges businesses face daily.</strong> Uniquely positioned to build solutions that work in the real world, with deep understanding of both business operations and modern software architecture.
-              </p>
-              <p>
-                Specializing in full-stack development, real-time systems, data analytics, and platforms that work reliably under production load. <strong>Built for the unique demands of growing businesses.</strong>
-              </p>
-            </div>
-          </CardContent>
-          </Card>
-        </SpotlightCard>
-      </div>
+      {/* Journey/Timeline Section */}
+      <AboutJourney />
 
-      {/* Why Choose Me Section */}
-      <div className="space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-semibold mb-4">The Developer Advantage</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Why businesses choose someone who truly understands their operations
-          </p>
+      {/* Technical Skills Section */}
+      <section className="py-20 bg-gradient-to-b from-background via-muted/10 to-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              A curated toolkit built from real-world experience. I choose technologies 
+              that deliver results, not just the latest trends.
+            </p>
+          </motion.div>
+          <OrbitingSkills />
         </div>
-        <div className="relative w-full overflow-hidden">
-          <style>{`
-            @keyframes scroll-cards {
-              0% {
-                transform: translateX(0);
-              }
-              100% {
-                transform: translateX(-50%);
-              }
-            }
+      </section>
 
-            .cards-scroll {
-              animation: scroll-cards 30s linear infinite;
-            }
-
-            .cards-scroll:hover {
-              animation-play-state: paused;
-            }
-
-            .scroll-container-cards {
-              mask: linear-gradient(
-                90deg,
-                transparent 0%,
-                black 10%,
-                black 90%,
-                transparent 100%
-              );
-              -webkit-mask: linear-gradient(
-                90deg,
-                transparent 0%,
-                black 10%,
-                black 90%,
-                transparent 100%
-              );
-            }
-          `}</style>
-          
-          <div className="scroll-container-cards w-full py-8">
-            <div className="cards-scroll flex gap-8 w-max">
-              <HighlightCard
-                icon={<span className="text-5xl">🚀</span>}
-                title="Built by Someone Who Gets It"
-                description={[
-                  "Real operational experience combined with cutting-edge technology means practical, not theoretical solutions.",
-                  "I understand why a business owner needs real-time dashboards and how every feature impacts the bottom line."
-                ]}
-                accentColor="#8b5cf6"
-                secondaryColor="#a78bfa"
-              />
-              
-              <HighlightCard
-                icon={<span className="text-5xl">💰</span>}
-                title="ROI That Makes Sense"
-                description={[
-                  "Business automation can reduce operational costs by 30-50%.",
-                  "Every solution is designed with clear, measurable returns that justify the investment and pay for themselves."
-                ]}
-                accentColor="#7c3aed"
-                secondaryColor="#8b5cf6"
-              />
-              
-              <HighlightCard
-                icon={<span className="text-5xl">📈</span>}
-                title="Scalable Solutions"
-                description={[
-                  "From startups to established enterprises, solutions that grow with your business.",
-                  "Start with what you need now, scale as you expand."
-                ]}
-                accentColor="#8b5cf6"
-                secondaryColor="#a78bfa"
-              />
-              
-              <HighlightCard
-                icon={<span className="text-5xl">🌍</span>}
-                title="Global Reach, Personal Service"
-                description={[
-                  "Available for consultations across all time zones.",
-                  "Cost-effective development without compromising quality, serving ambitious businesses worldwide."
-                ]}
-                accentColor="#7c3aed"
-                secondaryColor="#a78bfa"
-              />
-              
-              {/* Duplicate cards for seamless loop */}
-              <HighlightCard
-                icon={<span className="text-5xl">🚀</span>}
-                title="Built by Someone Who Gets It"
-                description={[
-                  "Real operational experience combined with cutting-edge technology means practical, not theoretical solutions.",
-                  "I understand why a business owner needs real-time dashboards and how every feature impacts the bottom line."
-                ]}
-                accentColor="#8b5cf6"
-                secondaryColor="#a78bfa"
-              />
-              
-              <HighlightCard
-                icon={<span className="text-5xl">💰</span>}
-                title="ROI That Makes Sense"
-                description={[
-                  "Business automation can reduce operational costs by 30-50%.",
-                  "Every solution is designed with clear, measurable returns that justify the investment and pay for themselves."
-                ]}
-                accentColor="#7c3aed"
-                secondaryColor="#8b5cf6"
-              />
-              
-              <HighlightCard
-                icon={<span className="text-5xl">📈</span>}
-                title="Scalable Solutions"
-                description={[
-                  "From startups to established enterprises, solutions that grow with your business.",
-                  "Start with what you need now, scale as you expand."
-                ]}
-                accentColor="#8b5cf6"
-                secondaryColor="#a78bfa"
-              />
-              
-              <HighlightCard
-                icon={<span className="text-5xl">🌍</span>}
-                title="Global Reach, Personal Service"
-                description={[
-                  "Available for consultations across all time zones.",
-                  "Cost-effective development without compromising quality, serving ambitious businesses worldwide."
-                ]}
-                accentColor="#7c3aed"
-                secondaryColor="#a78bfa"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Skills Section */}
-      <div className="space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-semibold mb-4">Technical Expertise</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Interactive overview of my core technical skills and proficiency levels
-          </p>
-        </div>
-        <OrbitingSkills />
-      </div>
-
-      {/* Timeline Section */}
-      <div className="space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-semibold mb-4">Career Timeline</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            My professional journey from data analyst to head of operations
-          </p>
-        </div>
-        <div className="max-w-5xl mx-auto">
-          <div className="relative space-y-12 pl-8 md:pl-0">
-            {/* Vertical line - mobile */}
-            <div className="absolute left-[11px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/50 to-primary/20 md:hidden" />
-            
-            {timeline.map((item, index) => (
-              <div key={item.year} className="relative">
-                {/* Vertical line connecting dots - desktop */}
-                {index < timeline.length - 1 && (
-                  <div className="hidden md:block absolute left-[15px] top-[40px] w-[2px] h-[calc(100%+3rem)] bg-gradient-to-b from-primary/80 to-primary/30" />
-                )}
-                
-                <div className="flex gap-6 md:gap-8 items-start">
-                  {/* Timeline dot */}
-                  <div className="relative flex-shrink-0">
-                    <div className="h-8 w-8 rounded-full border-4 border-primary bg-background shadow-lg ring-4 ring-primary/10 z-10 relative" />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 space-y-4 pb-4">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
-                        <span className="inline-flex items-center text-sm font-semibold text-primary bg-primary/10 px-4 py-1.5 rounded-full w-fit">
-                          {item.year}
-                        </span>
-                        <h3 className="font-semibold text-lg md:text-xl text-foreground sm:text-right flex-1">
-                          {item.title}
-                        </h3>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed text-base">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
+      {/* Values & Work Philosophy Section */}
+      <AboutValues />
+    </>
   );
 }
-
