@@ -68,43 +68,61 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.15 0.02 290);
+  /* Enhanced light mode colors */
+  --background: oklch(0.985 0.005 290);
+  --foreground: oklch(0.20 0.03 290);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 290);
+  --card-foreground: oklch(0.20 0.03 290);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 290);
-  --primary: oklch(0.55 0.26 290);
+  --popover-foreground: oklch(0.20 0.03 290);
+  /* More vibrant primary purple */
+  --primary: oklch(0.50 0.28 290);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.01 290);
-  --secondary-foreground: oklch(0.15 0.02 290);
-  --muted: oklch(0.96 0.01 290);
-  --muted-foreground: oklch(0.50 0.02 290);
-  --accent: oklch(0.65 0.20 300);
+  /* Subtle purple tint for secondary elements */
+  --secondary: oklch(0.94 0.02 290);
+  --secondary-foreground: oklch(0.25 0.03 290);
+  /* Muted with better contrast */
+  --muted: oklch(0.94 0.015 290);
+  --muted-foreground: oklch(0.45 0.03 290);
+  /* Vibrant accent */
+  --accent: oklch(0.58 0.22 300);
   --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.01 290);
-  --input: oklch(0.90 0.01 290);
-  --ring: oklch(0.55 0.26 290);
-  --chart-1: oklch(0.60 0.20 290);
-  --chart-2: oklch(0.70 0.18 310);
-  --chart-3: oklch(0.55 0.18 270);
-  --chart-4: oklch(0.75 0.20 250);
-  --chart-5: oklch(0.65 0.16 330);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.15 0.02 290);
-  --sidebar-primary: oklch(0.55 0.26 290);
+  --destructive: oklch(0.55 0.25 25);
+  /* More visible borders */
+  --border: oklch(0.88 0.02 290);
+  --input: oklch(0.88 0.02 290);
+  --ring: oklch(0.50 0.28 290);
+  /* Chart colors */
+  --chart-1: oklch(0.55 0.22 290);
+  --chart-2: oklch(0.65 0.20 310);
+  --chart-3: oklch(0.50 0.20 270);
+  --chart-4: oklch(0.70 0.22 250);
+  --chart-5: oklch(0.60 0.18 330);
+  /* Sidebar */
+  --sidebar: oklch(0.98 0.005 290);
+  --sidebar-foreground: oklch(0.20 0.03 290);
+  --sidebar-primary: oklch(0.50 0.28 290);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.96 0.01 290);
-  --sidebar-accent-foreground: oklch(0.15 0.02 290);
-  --sidebar-border: oklch(0.90 0.01 290);
-  --sidebar-ring: oklch(0.55 0.26 290);
+  --sidebar-accent: oklch(0.94 0.02 290);
+  --sidebar-accent-foreground: oklch(0.20 0.03 290);
+  --sidebar-border: oklch(0.88 0.02 290);
+  --sidebar-ring: oklch(0.50 0.28 290);
+  /* Component variables */
   --component-inactive-color: var(--muted-foreground);
   --component-bg: var(--card);
   --component-shadow: var(--border);
   --component-active-bg: var(--secondary);
   --component-line-inactive-color: var(--border);
   --component-active-color-default: var(--accent-foreground);
+  /* Light mode specific - spotlight/glow effects */
+  --spotlight-opacity: 0.12;
+  --border-spot-opacity: 0.5;
+  --border-light-opacity: 0.3;
+  --glow-saturation: 70;
+  --glow-lightness: 50;
+  /* Card shadow for depth */
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .dark {
@@ -145,6 +163,15 @@
   --component-active-bg: var(--secondary);
   --component-line-inactive-color: var(--muted-foreground);
   --component-active-color-default: var(--accent-foreground);
+  /* Dark mode specific - spotlight/glow effects */
+  --spotlight-opacity: 0.08;
+  --border-spot-opacity: 0.7;
+  --border-light-opacity: 0.4;
+  --glow-saturation: 60;
+  --glow-lightness: 70;
+  /* Card shadow for dark mode */
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
 }
 
 @layer base {
@@ -204,6 +231,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Light mode card enhancements */
+:root .card,
+:root [data-slot="card"] {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.2s ease;
+}
+
+:root .card:hover,
+:root [data-slot="card"]:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Light mode badge improvements */
+:root .badge {
+  border: 1px solid var(--border);
 }
 
 /* Modern Mobile Menu Styles */

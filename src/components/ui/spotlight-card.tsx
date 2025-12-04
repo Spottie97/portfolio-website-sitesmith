@@ -58,7 +58,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
         var(--spotlight-size) var(--spotlight-size) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 290) calc(var(--saturation, 60) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.08)), transparent
+        hsl(var(--hue, 290) var(--glow-saturation, 60)% var(--glow-lightness, 70)% / var(--spotlight-opacity, 0.08)), transparent
       )`,
       backgroundColor: 'var(--backdrop, transparent)',
       backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
@@ -92,7 +92,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
         calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 290) calc(var(--saturation, 70) * 1%) calc(var(--lightness, 55) * 1%) / var(--border-spot-opacity, 0.7)), transparent 100%
+        hsl(var(--hue, 290) var(--glow-saturation, 70)% var(--glow-lightness, 55)% / var(--border-spot-opacity, 0.7)), transparent 100%
       );
       filter: brightness(1.3);
     }

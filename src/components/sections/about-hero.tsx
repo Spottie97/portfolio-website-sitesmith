@@ -10,16 +10,16 @@ const softwareExperienceYears = dayjs().year() - softwareStartYear;
 export function AboutHero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
+      {/* Background gradient - enhanced for light mode */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-primary/12 dark:from-primary/5 dark:via-background dark:to-primary/10" />
       
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      {/* Decorative elements - more visible in light mode */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/15 dark:bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 dark:bg-primary/5 rounded-full blur-3xl" />
       
-      {/* Grid pattern overlay */}
+      {/* Grid pattern overlay - more visible in light mode */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
                            linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
@@ -34,7 +34,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 dark:bg-primary/10 text-primary text-sm font-medium border border-primary/20"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -128,4 +128,3 @@ export function AboutHero() {
     </section>
   );
 }
-

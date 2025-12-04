@@ -6,16 +6,16 @@ import { MessageSquare, Clock, Globe } from "lucide-react";
 export function ContactHero() {
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
+      {/* Background gradient - enhanced for light mode */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-primary/12 dark:from-primary/5 dark:via-background dark:to-primary/10" />
       
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      {/* Decorative elements - more visible in light mode */}
+      <div className="absolute top-10 left-10 w-64 h-64 bg-primary/15 dark:bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary/10 dark:bg-primary/5 rounded-full blur-3xl" />
       
-      {/* Grid pattern overlay */}
+      {/* Grid pattern overlay - more visible in light mode */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
                            linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
@@ -30,7 +30,7 @@ export function ContactHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 dark:bg-primary/10 text-primary text-sm font-medium border border-primary/20"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -53,7 +53,7 @@ export function ContactHero() {
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute -bottom-1 left-0 h-1 bg-primary/30 rounded-full"
+                className="absolute -bottom-1 left-0 h-1 bg-primary/40 dark:bg-primary/30 rounded-full"
               />
             </span>
           </motion.h1>
@@ -87,7 +87,7 @@ export function ContactHero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 text-sm"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/80 dark:bg-muted/50 text-sm border border-border"
               >
                 <item.icon className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">{item.text}</span>
@@ -99,4 +99,3 @@ export function ContactHero() {
     </section>
   );
 }
-

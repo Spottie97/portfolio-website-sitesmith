@@ -25,14 +25,15 @@ function FloatingPaths({ position }: { position: number }) {
       684 - i * 5 * position
     } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
     width: 0.5 + i * 0.08,
-    opacity: 0.1 + i * 0.08,
+    // Higher opacity in light mode for better visibility
+    opacity: 0.15 + i * 0.08,
   }));
 
   if (prefersReducedMotion) {
     return (
       <div className="absolute inset-0 pointer-events-none">
         <svg
-          className="w-full h-full text-slate-950 dark:text-white"
+          className="w-full h-full text-primary/60 dark:text-white"
           viewBox="0 0 696 316"
           fill="none"
         >
@@ -54,7 +55,7 @@ function FloatingPaths({ position }: { position: number }) {
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ willChange: 'opacity' }}>
       <svg
-        className="w-full h-full text-slate-950 dark:text-white"
+        className="w-full h-full text-primary/60 dark:text-white"
         viewBox="0 0 696 316"
         fill="none"
       >
@@ -113,14 +114,17 @@ export function Hero() {
   // Use static rendering if user prefers reduced motion
   if (prefersReducedMotion) {
     return (
-      <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
+      <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
+        {/* Background gradient for light mode depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/8 dark:from-transparent dark:via-transparent dark:to-transparent" />
+        
         <div className="absolute inset-0">
           <FloatingPaths position={1} />
         </div>
 
         <div className="container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8 min-h-screen max-w-7xl">
           <div className="space-y-8 w-full max-w-4xl">
-            <Badge variant="outline" className="w-fit mx-auto bg-card/50 border-border text-muted-foreground">
+            <Badge variant="outline" className="w-fit mx-auto bg-card/80 dark:bg-card/50 border-border text-muted-foreground">
               {SITE_LOCATION} • {SITE_TITLE}
             </Badge>
             
@@ -136,7 +140,7 @@ export function Hero() {
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
               </Button>
-              <Button asChild variant="ghost" size="lg" className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+              <Button asChild variant="ghost" size="lg" className="border border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
                 <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
               </Button>
             </div>
@@ -147,7 +151,10 @@ export function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
+      {/* Background gradient for light mode depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/8 dark:from-transparent dark:via-transparent dark:to-transparent" />
+      
       <div className="absolute inset-0">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
@@ -162,7 +169,7 @@ export function Hero() {
           style={{ willChange: 'transform, opacity' }}
         >
           <motion.div variants={itemVariants}>
-            <Badge variant="outline" className="w-fit mx-auto bg-card/50 border-border text-muted-foreground">
+            <Badge variant="outline" className="w-fit mx-auto bg-card/80 dark:bg-card/50 border-border text-muted-foreground">
               {SITE_LOCATION} • {SITE_TITLE}
             </Badge>
           </motion.div>
@@ -188,7 +195,7 @@ export function Hero() {
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
             </Button>
-            <Button asChild variant="ghost" size="lg" className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+            <Button asChild variant="ghost" size="lg" className="border border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
               <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
             </Button>
           </motion.div>
@@ -197,4 +204,3 @@ export function Hero() {
     </div>
   );
 }
-
