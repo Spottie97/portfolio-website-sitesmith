@@ -6,7 +6,6 @@ const config: Config = {
     "./src/**/*.{ts,tsx,md,mdx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/@promptcraft/**/*.{ts,tsx,md,mdx}",
   ],
   theme: {
     container: {

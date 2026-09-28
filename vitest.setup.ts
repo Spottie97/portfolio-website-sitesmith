@@ -16,8 +16,8 @@ if (!globalThis.IntersectionObserver) {
     }
   }
 
-  // @ts-ignore - assigning to global for test environment
-  globalThis.IntersectionObserver = MockIntersectionObserver;
+  globalThis.IntersectionObserver =
+    MockIntersectionObserver as unknown as typeof IntersectionObserver;
 }
 
 // Cleanup after each test
