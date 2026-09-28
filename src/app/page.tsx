@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 
-import { servicePackages } from "@/data/services";
+import { projects } from "@/data/projects";
 import { Hero } from "@/components/sections/hero";
 import { Logos } from "@/components/sections/logos";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
-import { ServicesOverview } from "@/components/sections/services-overview";
-import { Testimonials } from "@/components/sections/testimonials";
-import { FaqSection } from "@/components/sections/faq";
+import { SkillsSnapshot } from "@/components/sections/skills-snapshot";
+import { StatsStrip } from "@/components/sections/stats-strip";
 import { FinalCta } from "@/components/sections/cta";
-import { StrategyPillars } from "@promptcraft/sections/strategy-pillars";
-import { CredibilityStrip } from "@promptcraft/sections/credibility-strip";
-import { buildMetadata, jsonLdScriptProps, serviceJsonLd } from "@/lib/seo";
+import { SITE_NAME } from "@/lib/constants";
+import { buildMetadata, jsonLdScriptProps, projectJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Full Stack Developer & Technical Consultant",
+  title: SITE_NAME,
   description:
-    "Building scalable web applications and business automation solutions. Expert in Next.js, React, and Cloud Architecture. Transforming complex business requirements into elegant digital products.",
+    "Portfolio of Reinhardt Erasmus: business software, AI tooling, and games. Production systems, prototypes, and public experiments.",
   path: "/",
 });
 
@@ -24,33 +22,35 @@ export default function HomePage() {
   return (
     <>
       <Script
-        id="ld-services"
+        id="ld-projects"
         {...jsonLdScriptProps({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          itemListElement: servicePackages.map((service, index) => ({
+          itemListElement: projects.map((project, index) => ({
             "@type": "ListItem",
             position: index + 1,
-            item: serviceJsonLd({
-              name: service.name,
-              summary: service.summary,
-              deliverables: service.deliverables,
-              slug: service.slug,
+            item: projectJsonLd({
+              title: project.title,
+              summary: project.summary,
+              slug: project.slug,
+              tech: project.tech,
+              date: project.publishedAt,
+              highlights: project.highlights.join(", "),
+              image: project.coverImage,
+              links: {
+                live: project.live,
+                repo: project.visibility === "public" ? project.repo : undefined,
+              },
             }),
           })),
         })}
       />
       <Hero />
-      <CredibilityStrip />
-      <StrategyPillars />
-      <Logos />
+      <StatsStrip />
       <FeaturedProjects />
-      <ServicesOverview />
-      <Testimonials />
-      <FaqSection />
+      <SkillsSnapshot />
+      <Logos />
       <FinalCta />
     </>
   );
 }
-
-

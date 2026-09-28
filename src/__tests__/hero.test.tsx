@@ -7,14 +7,14 @@ describe("Hero Component", () => {
     render(<Hero />);
     expect(
       screen.getByRole("heading", {
-        name: /Building Digital Products That Scale/i,
+        name: /Business software, AI tooling, and games/i,
       }),
     ).toBeInTheDocument();
   });
 
   it("displays CTA buttons", () => {
     render(<Hero />);
-    expect(screen.getByRole("link", { name: /Let's Discuss Your Project/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /View My Work/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /View my work/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Get in touch/i })).toBeInTheDocument();
   });
 });

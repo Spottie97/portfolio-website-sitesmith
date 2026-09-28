@@ -6,12 +6,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { ArrowRight } from "lucide-react"
+import { ProjectCover } from "@/components/projects/project-cover"
+import type { ProjectCategory } from "@/data/projects"
 
 interface Feature {
   step: string
   title?: string
   content: string
-  image: string
+  image?: string
+  category?: ProjectCategory
   link?: string
 }
 
@@ -132,7 +135,7 @@ export function FeatureSteps({
                         className="group/link inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/90 transition-all relative"
                       >
                         <span className="relative">
-                          View case study
+                          View project
                           <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary group-hover/link:w-full transition-all duration-300" />
                         </span>
                         <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
@@ -162,15 +165,23 @@ export function FeatureSteps({
                       transition={{ duration: prefersReducedMotion ? 0 : 0.4, ease: "easeOut" }}
                       style={{ willChange: prefersReducedMotion ? 'auto' : 'transform, opacity' }}
                     >
-                      <Image
-                        src={feature.image}
-                        alt={feature.title || feature.step}
-                        className="w-full h-full object-cover"
-                        width={1000}
-                        height={500}
-                        priority={index === 0}
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
+                      {feature.image ? (
+                        <Image
+                          src={feature.image}
+                          alt={feature.title || feature.step}
+                          className="w-full h-full object-cover"
+                          width={1000}
+                          height={500}
+                          priority={index === 0}
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      ) : feature.category ? (
+                        <ProjectCover
+                          title={feature.title || feature.step}
+                          category={feature.category}
+                          className="h-full"
+                        />
+                      ) : null}
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                     </motion.div>
                   ),

@@ -3,8 +3,8 @@ import { Mail, Phone, Clock, Instagram, Github, Linkedin, ExternalLink } from "l
 
 import {
   AVAILABILITY_NOTE,
+  FOCUS_AREAS,
   NAV_LINKS,
-  SERVICE_CATEGORIES,
   SITE_CONTACT_EMAIL,
   SITE_NAME,
   SITE_PHONE,
@@ -17,7 +17,7 @@ const YEAR = new Date().getFullYear();
 
 const quickLinks = [
   { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms of Service" },
+  { href: "/terms", label: "Terms" },
   { href: "/sitemap.xml", label: "Sitemap" },
 ];
 
@@ -52,7 +52,7 @@ export function SiteFooter() {
             <div className="space-y-3">
               <h3 className="text-xl font-bold tracking-tight">{SITE_NAME}</h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Building digital solutions for farmers and agribusinesses—platforms that work in the field and deliver measurable results.
+                Full-stack developer and Head of Operations. Business software, AI tooling, and games.
               </p>
             </div>
             
@@ -117,15 +117,19 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Services */}
           <div className="lg:col-span-2">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
-              Services
+              Focus
             </h4>
             <ul className="space-y-3 text-sm">
-              {SERVICE_CATEGORIES.map((service) => (
-                <li key={service} className="text-muted-foreground">
-                  {service}
+              {FOCUS_AREAS.map((area) => (
+                <li key={area.href}>
+                  <Link
+                    href={area.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {area.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -160,11 +164,9 @@ export function SiteFooter() {
             </div>
             
             <div className="mt-6 pt-6 border-t border-border/60">
-              <Link href="/contact">
-                <Button size="sm" className="w-full">
-                  Book Discovery Call
-                </Button>
-              </Link>
+              <Button asChild size="sm" className="w-full">
+                <Link href="/contact">Get in touch</Link>
+              </Button>
             </div>
           </div>
         </div>

@@ -1,7 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Sparkles } from "lucide-react";
+import dayjs from "dayjs";
+import { Briefcase } from "lucide-react";
+
+import { projects } from "@/data/projects";
+
+const softwareStartYear = 2020;
+
+const stats = [
+  { value: String(projects.length), label: "Projects" },
+  { value: "3", label: "Areas" },
+  { value: `${dayjs().year() - softwareStartYear}+`, label: "Years in software" },
+];
 
 export function ProjectsHero() {
   return (
@@ -33,7 +44,7 @@ export function ProjectsHero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 dark:bg-primary/10 text-primary text-sm font-medium border border-primary/20"
           >
             <Briefcase className="w-4 h-4" />
-            Portfolio & Case Studies
+            Selected work
           </motion.div>
 
           {/* Main headline */}
@@ -43,17 +54,16 @@ export function ProjectsHero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
           >
-            Work That{" "}
+            Projects, described{" "}
             <span className="text-primary relative">
-              Speaks
+              as they are
               <motion.span
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="absolute -bottom-1 left-0 h-1 bg-primary/40 dark:bg-primary/30 rounded-full"
               />
-            </span>{" "}
-            for Itself
+            </span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -63,10 +73,8 @@ export function ProjectsHero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Real projects with{" "}
-            <span className="text-foreground font-medium">measurable results</span>. 
-            From custom web applications to business automation platforms—each case study 
-            shows how technology solves real problems.
+            Business software, AI tooling, and games. Descriptions stick to what was
+            actually built. Private client work is described without a link to the repository.
           </motion.p>
 
           {/* Stats row */}
@@ -76,11 +84,7 @@ export function ProjectsHero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-8 pt-6"
           >
-            {[
-              { value: "15+", label: "Projects Delivered" },
-              { value: "100%", label: "Client Satisfaction" },
-              { value: "5+", label: "Industries Served" },
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -94,15 +98,6 @@ export function ProjectsHero() {
             ))}
           </motion.div>
 
-          {/* Decorative sparkle */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex justify-center pt-4"
-          >
-            <Sparkles className="w-5 h-5 text-primary/50 dark:text-primary/40" />
-          </motion.div>
         </div>
       </div>
     </section>

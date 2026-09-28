@@ -36,7 +36,7 @@ export function ContactHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Available for new projects
+            Open to a conversation
           </motion.div>
 
           {/* Main headline */}
@@ -46,9 +46,9 @@ export function ContactHero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
           >
-            Let&apos;s Build{" "}
+            Get in{" "}
             <span className="text-primary relative">
-              Something Great
+              touch
               <motion.span
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
@@ -65,9 +65,8 @@ export function ContactHero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Have a project in mind? I&apos;d love to hear about it. Share your vision and 
-            let&apos;s explore how we can bring it to life with{" "}
-            <span className="text-foreground font-medium">modern technology</span>.
+            Email, phone, or the form. I read everything, and I reply when I have
+            something useful to say.
           </motion.p>
 
           {/* Feature badges */}
@@ -78,9 +77,9 @@ export function ContactHero() {
             className="flex flex-wrap items-center justify-center gap-4 pt-4"
           >
             {[
-              { icon: Clock, text: "24h Response Time" },
-              { icon: Globe, text: "Available Worldwide" },
-              { icon: MessageSquare, text: "Free Consultation" },
+              { icon: Clock, text: "Usually within a business day" },
+              { icon: Globe, text: "Based in South Africa" },
+              { icon: MessageSquare, text: "Email, phone, or WhatsApp" },
             ].map((item, index) => (
               <motion.div
                 key={item.text}

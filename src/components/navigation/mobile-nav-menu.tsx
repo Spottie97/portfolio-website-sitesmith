@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useRef, useEffect, useMemo } from "react";
-import { Briefcase, User, PhoneCall, FolderOpen } from "lucide-react";
+import { Layers, User, PhoneCall, FolderOpen } from "lucide-react";
 import type { IconComponentType } from "@/components/ui/modern-mobile-menu";
 
 interface NavMenuItem {
@@ -12,8 +12,8 @@ interface NavMenuItem {
 }
 
 const navItems: NavMenuItem[] = [
-  { label: "Projects", icon: FolderOpen, href: "/projects" },
-  { label: "Services", icon: Briefcase, href: "/services" },
+  { label: "Work", icon: FolderOpen, href: "/projects" },
+  { label: "Skills", icon: Layers, href: "/skills" },
   { label: "About", icon: User, href: "/about" },
   { label: "Contact", icon: PhoneCall, href: "/contact" },
 ];

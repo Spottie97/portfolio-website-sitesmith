@@ -15,7 +15,7 @@ type ContactPageProps = {
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Let's discuss your next project. Free consultation for web development, business automation, and technical consulting. Available worldwide with 24-hour response time.",
+    "Get in touch with Reinhardt Erasmus. Open to collaborations and conversations about the work.",
   path: "/contact",
 });
 
@@ -36,7 +36,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-2">Send a Message</h2>
                     <p className="text-sm text-muted-foreground">
-                      Fill out the form below and I&apos;ll get back to you within 24 hours.
+                      A short note is enough. I usually reply within a business day.
                     </p>
                   </div>
                   <Suspense fallback={<p>Loading form…</p>}>

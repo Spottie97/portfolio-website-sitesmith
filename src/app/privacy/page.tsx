@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { SITE_CONTACT_EMAIL } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -28,7 +29,7 @@ export default function PrivacyPage() {
       </p>
       <h2>Your rights</h2>
       <p>
-        You can request data deletion or export by emailing hello@example.com. Responses are provided within 30 days.
+        You can request data deletion or export by emailing {SITE_CONTACT_EMAIL}. Responses are provided within 30 days.
       </p>
       </div>
     </div>

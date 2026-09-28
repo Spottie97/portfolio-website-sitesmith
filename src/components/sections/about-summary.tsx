@@ -3,7 +3,7 @@
 import { AboutHero } from "@/components/sections/about-hero";
 import { AboutJourney } from "@/components/sections/about-journey";
 import { AboutValues } from "@/components/sections/about-values";
-import { OrbitingSkills } from "@/components/sections/orbiting-skills";
+import { SkillsGrid } from "@/components/sections/skills-grid";
 import { motion } from "framer-motion";
 
 export function AboutSummary() {
@@ -25,13 +25,12 @@ export function AboutSummary() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical expertise</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              A curated toolkit built from real-world experience. I choose technologies 
-              that deliver results, not just the latest trends.
+              The same tools as the skills page, grouped by the kind of work they show up in.
             </p>
           </motion.div>
-          <OrbitingSkills />
+          <SkillsGrid variant="compact" />
         </div>
       </section>
 

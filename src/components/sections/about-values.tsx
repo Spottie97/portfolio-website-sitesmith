@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
+import { projects } from "@/data/projects";
 
 const softwareStartYear = 2020;
 const softwareExperienceYears = dayjs().year() - softwareStartYear;
@@ -33,7 +34,7 @@ const values = [
   {
     icon: Target,
     title: "Results-Driven",
-    description: "Success is measured by business outcomes—reduced costs, increased efficiency, happier users.",
+    description: "I care whether the thing gets used. A demo that nobody opens is not a result.",
     color: "from-green-500/20 to-emerald-600/20",
   },
   {
@@ -57,10 +58,13 @@ const values = [
 ];
 
 const stats = [
-  { value: `${softwareExperienceYears}+`, label: "Years Experience" },
-  { value: "15+", label: "Projects Delivered" },
-  { value: "100%", label: "Client Satisfaction" },
-  { value: "24h", label: "Response Time" },
+  { value: `${softwareExperienceYears}+`, label: "Years in software" },
+  { value: String(projects.length), label: "Projects on this site" },
+  { value: "3", label: "Areas of work" },
+  {
+    value: String(projects.filter((project) => project.visibility === "public").length),
+    label: "Public repositories",
+  },
 ];
 
 export function AboutValues() {
@@ -153,12 +157,12 @@ export function AboutValues() {
         >
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20">
             <div className="text-center sm:text-left">
-              <h3 className="text-xl font-semibold mb-1">Ready to build something great?</h3>
-              <p className="text-muted-foreground">Let&apos;s discuss your project and see how I can help.</p>
+              <h3 className="text-xl font-semibold mb-1">Want to talk about the work?</h3>
+              <p className="text-muted-foreground">I&apos;m open to collaborations and interesting problems.</p>
             </div>
             <Button asChild size="lg" className="group whitespace-nowrap">
               <Link href="/contact" className="flex items-center gap-2">
-                Get in Touch
+                Get in touch
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

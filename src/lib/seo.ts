@@ -27,8 +27,7 @@ export const buildMetadata = (options: BuildMetadataOptions = {}): Metadata => {
 
   return {
     title: {
-      default: `${title} | ${SITE_TITLE}`,
-      template: `%s | ${SITE_TITLE}`,
+      absolute: `${title} | ${SITE_TITLE}`,
     },
     description,
     metadataBase: new URL(BASE_URL),
@@ -97,7 +96,7 @@ type ProjectJsonLdInput = {
   slug: string;
   tech: string[];
   date: string;
-  outcomes?: string;
+  highlights?: string;
   image?: string;
   links?: {
     live?: string;
@@ -116,27 +115,6 @@ export const projectJsonLd = (project: ProjectJsonLdInput) => ({
   dateCreated: project.date,
   image: project.image,
   sameAs: [project.links?.live, project.links?.repo].filter(Boolean),
-  ...(project.outcomes && { disambiguatingDescription: project.outcomes }),
-});
-
-type ServiceJsonLdInput = {
-  name: string;
-  summary: string;
-  deliverables: string[];
-  slug: string;
-};
-
-export const serviceJsonLd = (service: ServiceJsonLdInput) => ({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: service.name,
-  description: service.summary,
-  provider: personJsonLd(),
-  offers: {
-    "@type": "Offer",
-    url: `${BASE_URL}/services#${service.slug}`,
-  },
-  areaServed: "Global",
-  serviceOutput: service.deliverables,
+  ...(project.highlights && { disambiguatingDescription: project.highlights }),
 });
 

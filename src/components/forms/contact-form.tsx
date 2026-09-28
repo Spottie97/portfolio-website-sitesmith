@@ -14,12 +14,11 @@ import { DateTimePicker } from "@/components/ui/calendar-date-and-time-range";
 import { useTransitionMessage } from "@/components/hooks/use-transition-message";
 
 const projectTypes = [
-  "Farm management platform",
-  "IoT sensor integration",
-  "Crop analytics system",
-  "Supply chain solution",
-  "Marketplace platform",
-  "Other",
+  "Business software",
+  "AI and automation",
+  "Games",
+  "A role or collaboration",
+  "Something else",
 ];
 
 export function ContactForm({ defaultService }: { defaultService?: string }) {
@@ -145,7 +144,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
       </div>
 
       <div className="grid gap-2">
-        <label className="text-sm font-medium">Project focus</label>
+        <label className="text-sm font-medium">What is this about?</label>
         <Select
           onValueChange={(value) => form.setValue("projectType", value)}
           defaultValue={defaultService}
@@ -165,12 +164,12 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
 
       <div className="grid gap-2">
         <label htmlFor="message" className="text-sm font-medium">
-          Project summary
+          Message
         </label>
         <Textarea
           id="message"
           rows={5}
-          placeholder="Share the problem you’re solving, goals, and timelines..."
+          placeholder="A bit of context is enough."
           {...form.register("message")}
         />
         {form.formState.errors.message ? (

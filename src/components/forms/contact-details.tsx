@@ -109,7 +109,6 @@ export function ContactDetails() {
               <div>
                 <p className="text-sm font-medium">Location</p>
                 <p className="text-sm text-muted-foreground">South Africa (GMT+2)</p>
-                <p className="text-xs text-muted-foreground/70">Available for remote work worldwide</p>
               </div>
             </div>
           </CardContent>

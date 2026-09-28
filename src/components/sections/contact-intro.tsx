@@ -2,9 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const highlights = [
-  "Full-stack expertise from frontend to cloud infrastructure",
-  "Solutions built to scale with your business growth",
-  "Available for consultations across all time zones—serving clients worldwide",
+  "Business software, AI tooling, and games",
+  "A reply when there is something useful to say",
+  "Based in South Africa",
 ];
 
 export function ContactIntro() {
@@ -13,10 +13,10 @@ export function ContactIntro() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl space-y-6">
       <div className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-          Let&apos;s discuss your next project
+          Get in touch
         </h1>
         <p className="text-lg text-muted-foreground">
-          Share your business challenges, goals, and vision—we&apos;ll design a solution that fits your needs, your workflow, and your budget.
+          Send a note about the work, a collaboration, or a question. A short message is enough.
         </p>
       </div>
 
@@ -25,7 +25,7 @@ export function ContactIntro() {
           <CardHeader>
             <CardTitle>What to expect</CardTitle>
             <p className="text-sm text-muted-foreground">
-              I respond within one business day with suggested next steps and a short Loom walkthrough when helpful.
+              I reply when I have something useful to say, usually within a business day.
             </p>
           </CardHeader>
           <CardContent>

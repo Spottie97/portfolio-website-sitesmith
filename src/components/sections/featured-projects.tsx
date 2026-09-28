@@ -6,12 +6,12 @@ import { FeatureSteps } from "@/components/blocks/feature-section";
 export function FeaturedProjects() {
   const featured = projects.filter((project) => project.featured);
 
-  // Transform projects data to feature steps format
   const projectFeatures = featured.map((project, index) => ({
     step: `Project ${index + 1}`,
     title: project.title,
     content: project.summary,
     image: project.coverImage,
+    category: project.category,
     link: `/projects/${project.slug}`,
   }));
 
@@ -20,7 +20,7 @@ export function FeaturedProjects() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FeatureSteps
           features={projectFeatures}
-          title="Featured Projects"
+          title="Featured work"
           autoPlayInterval={4000}
           className="p-0"
         />
@@ -28,4 +28,3 @@ export function FeaturedProjects() {
     </section>
   );
 }
-

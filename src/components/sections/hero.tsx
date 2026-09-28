@@ -123,25 +123,25 @@ export function Hero() {
         </div>
 
         <div className="container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8 min-h-screen max-w-7xl">
-          <div className="space-y-8 w-full max-w-4xl">
+          <div className="space-y-8 w-full min-w-0 max-w-4xl">
             <Badge variant="outline" className="w-fit mx-auto bg-card/80 dark:bg-card/50 border-border text-muted-foreground">
               {SITE_LOCATION} • {SITE_TITLE}
             </Badge>
             
-            <h1 className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-              Building Digital Products That Scale
+            <h1 className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-balance text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl lg:text-7xl">
+              Business software, AI tooling, and games
             </h1>
             
             <p className="text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
-              Full-stack developer specializing in modern web applications, business automation, and custom software solutions. I help startups and businesses turn complex problems into elegant, scalable digital products.
+              I&apos;m a full-stack developer and Head of Operations. This site is the work: production systems, automation, and games, built to a standard I&apos;d put my name on.
             </p>
             
             <div className="flex flex-col gap-3 sm:flex-row justify-center">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
+                <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
               </Button>
               <Button asChild variant="ghost" size="lg" className="border border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
-                <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
+                <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
               </Button>
             </div>
           </div>
@@ -165,7 +165,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="space-y-8 w-full max-w-4xl"
+          className="space-y-8 w-full min-w-0 max-w-4xl"
           style={{ willChange: 'transform, opacity' }}
         >
           <motion.div variants={itemVariants}>
@@ -176,16 +176,16 @@ export function Hero() {
           
           <motion.h1 
             variants={itemVariants}
-            className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+            className="bg-gradient-to-br from-foreground to-muted-foreground py-4 bg-clip-text text-balance text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl lg:text-7xl"
           >
-            Building Digital Products That Scale
+            Business software, AI tooling, and games
           </motion.h1>
           
           <motion.p 
             variants={itemVariants}
             className="text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto"
           >
-            Full-stack developer specializing in modern web applications, business automation, and custom software solutions. I help startups and businesses turn complex problems into elegant, scalable digital products.
+            I&apos;m a full-stack developer and Head of Operations. This site is the work: production systems, automation, and games, built to a standard I&apos;d put my name on.
           </motion.p>
           
           <motion.div 
@@ -193,10 +193,10 @@ export function Hero() {
             className="flex flex-col gap-3 sm:flex-row justify-center"
           >
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
+              <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
             </Button>
             <Button asChild variant="ghost" size="lg" className="border border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
-              <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
+              <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
             </Button>
           </motion.div>
         </motion.div>

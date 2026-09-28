@@ -12,7 +12,7 @@ export function DesktopNavTabs() {
   const tabsRef = useRef<(HTMLLIElement | null)[]>([]);
   const [mounted, setMounted] = useState(false);
   
-  const [selected, setSelected] = useState(0); // Start with 0, will be updated after mount
+  const [selected, setSelected] = useState(-1);
   
   const [position, setPosition] = useState({
     left: 0,
@@ -22,8 +22,9 @@ export function DesktopNavTabs() {
 
   // Find the selected tab based on pathname
   const getSelectedIndex = useCallback(() => {
-    const index = NAV_LINKS.findIndex(link => pathname === link.href);
-    return index >= 0 ? index : 0;
+    return NAV_LINKS.findIndex(
+      (link) => pathname === link.href || pathname.startsWith(`${link.href}/`),
+    );
   }, [pathname]);
 
   // Mark as mounted to enable client-only features
@@ -42,15 +43,17 @@ export function DesktopNavTabs() {
   // Calculate cursor position when selected changes (only after mount)
   useEffect(() => {
     if (!mounted) return;
-    const selectedTab = tabsRef.current[selected];
-    if (selectedTab) {
-      const { width } = selectedTab.getBoundingClientRect();
-      setPosition({
-        left: selectedTab.offsetLeft,
-        width,
-        opacity: 1,
-      });
+    const selectedTab = selected >= 0 ? tabsRef.current[selected] : null;
+    if (!selectedTab) {
+      setPosition((current) => ({ ...current, opacity: 0 }));
+      return;
     }
+    const { width } = selectedTab.getBoundingClientRect();
+    setPosition({
+      left: selectedTab.offsetLeft,
+      width,
+      opacity: 1,
+    });
   }, [selected, mounted]);
 
   const handleTabClick = (index: number) => {
@@ -60,7 +63,7 @@ export function DesktopNavTabs() {
 
   const handleMouseLeave = () => {
     if (!mounted) return;
-    const selectedTab = tabsRef.current[selected];
+    const selectedTab = selected >= 0 ? tabsRef.current[selected] : null;
     if (selectedTab) {
       const { width } = selectedTab.getBoundingClientRect();
       setPosition({

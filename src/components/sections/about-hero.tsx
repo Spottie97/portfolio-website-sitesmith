@@ -40,7 +40,7 @@ export function AboutHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Available for new projects
+            Head of Operations, Food Fair
           </motion.div>
 
           {/* Main headline */}
@@ -79,9 +79,8 @@ export function AboutHero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Full-stack developer who builds digital products that{" "}
-            <span className="text-foreground font-medium">solve real business problems</span>.
-            I combine operational experience with modern technology to help businesses scale.
+            Full-stack developer and Head of Operations. I build business software, AI tooling,
+            and games, and I still run the operations those systems have to survive.
           </motion.p>
 
           {/* Quick facts */}

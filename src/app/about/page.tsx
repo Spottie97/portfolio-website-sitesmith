@@ -7,7 +7,7 @@ import { AboutSummary } from "@/components/sections/about-summary";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Meet Reinhardt Erasmus—a full-stack developer who bridges the gap between business operations and modern technology. From managing factory operations to building scalable web applications, I bring a unique perspective to every project.",
+    "Reinhardt Erasmus is a full-stack developer and Head of Operations at Food Fair. Business software, AI tooling, and games.",
   path: "/about",
 });
 
