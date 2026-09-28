@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 import { env } from "@/env.mjs";
 
-const BASE_URL = env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const BASE_URL = env.NEXT_PUBLIC_SITE_URL ?? "https://reinhardterasmus.info";
 
 export default function robots(): MetadataRoute.Robots {
   return {

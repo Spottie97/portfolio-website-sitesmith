@@ -11,7 +11,7 @@ type BuildMetadataOptions = {
   alternates?: Metadata["alternates"];
 };
 
-const BASE_URL = env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const BASE_URL = env.NEXT_PUBLIC_SITE_URL ?? "https://reinhardterasmus.info";
 
 export const buildMetadata = (options: BuildMetadataOptions = {}): Metadata => {
   const {

@@ -2,7 +2,7 @@
 
 Personal site for Reinhardt Erasmus, a full-stack developer and Head of Operations based in South Africa. It presents production software, AI tooling, and games as a record of the work, with each skill tied back to a project.
 
-[LinkedIn](https://www.linkedin.com/in/reinhardterasmus/) · [GitHub](https://github.com/Spottie97) · [reinhardterasmus@gmail.com](mailto:reinhardterasmus@gmail.com)
+[reinhardterasmus.info](https://reinhardterasmus.info) · [LinkedIn](https://www.linkedin.com/in/reinhardterasmus/) · [GitHub](https://github.com/Spottie97) · [reinhardterasmus@gmail.com](mailto:reinhardterasmus@gmail.com)
 
 ## Site
 
@@ -41,7 +41,7 @@ RESEND_FROM_EMAIL=
 NEXT_PUBLIC_ENABLE_ANALYTICS=
 ```
 
-`NEXT_PUBLIC_SITE_URL` is used for canonical URLs, Open Graph, and the sitemap. Without `RESEND_API_KEY`, contact submissions are logged instead of emailed. Leave `NEXT_PUBLIC_ENABLE_ANALYTICS` empty locally. Any value, such as `true`, turns on Vercel Analytics and Speed Insights.
+`NEXT_PUBLIC_SITE_URL` is used for canonical URLs, Open Graph, the sitemap, and `llms.txt`. When it is unset, those links use `https://reinhardterasmus.info`. Without `RESEND_API_KEY`, contact submissions are logged instead of emailed. Leave `NEXT_PUBLIC_ENABLE_ANALYTICS` empty locally. Any value, such as `true`, turns on Vercel Analytics and Speed Insights.
 
 ## Scripts
 
@@ -64,4 +64,4 @@ NEXT_PUBLIC_ENABLE_ANALYTICS=
 
 ## Deployment
 
-Deploy on Vercel and set `NEXT_PUBLIC_SITE_URL` to the public origin. Add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` when the contact form should deliver email.
+Deploy on Vercel. Set `NEXT_PUBLIC_SITE_URL` to `https://reinhardterasmus.info`. Add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` when the contact form should deliver email.

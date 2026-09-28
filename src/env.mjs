@@ -10,7 +10,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SITE_URL: z
       .string()
       .url()
-      .default("https://example.com"),
+      .default("https://reinhardterasmus.info"),
     NEXT_PUBLIC_ENABLE_ANALYTICS: z.string().optional(),
   },
   runtimeEnv: {
