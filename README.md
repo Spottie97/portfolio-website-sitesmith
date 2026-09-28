@@ -1,77 +1,67 @@
-# Reinhardt Erasmus — portfolio
+# Reinhardt Erasmus
 
-Personal portfolio for a full-stack developer and Head of Operations. It shows business software, AI tooling, and games. It does not sell packages.
+Personal site for Reinhardt Erasmus, a full-stack developer and Head of Operations based in South Africa. It presents production software, AI tooling, and games as a record of the work, with each skill tied back to a project.
 
-Built with Next.js 15 (App Router), TypeScript, and Tailwind CSS.
+[LinkedIn](https://www.linkedin.com/in/reinhardterasmus/) · [GitHub](https://github.com/Spottie97) · [reinhardterasmus@gmail.com](mailto:reinhardterasmus@gmail.com)
 
-## Pages
+## Site
 
-- `/` — intro, featured work, and a skills snapshot
-- `/projects` — all projects, filtered by business software, AI and automation, or games
-- `/projects/[slug]` — what was built, the stack, and links when the work is public
-- `/skills` — tools grouped by area, each linked to the projects that use it
-- `/about` — background and the same skills, in short form
-- `/contact` — email form
+| Path | Contents |
+| --- | --- |
+| `/` | Introduction, featured work, and a short skills summary |
+| `/projects` | All projects, grouped as business software, AI and automation, or games |
+| `/projects/[slug]` | What was built, the stack, and a live or repository link when the work is public |
+| `/skills` | Tools grouped by area, each linked to the projects that use it |
+| `/about` | Background and a shorter view of the same skills |
+| `/contact` | Contact form |
 
-`/services` redirects to `/skills`.
+`/services` permanently redirects to `/skills`.
 
-## Project structure
+## Stack
 
-```
-src/
-├── app/                  # routes
-├── components/           # layout, sections, project cards
-├── data/
-│   ├── projects.ts       # project write-ups
-│   ├── skills.ts         # skills, derived from project.tech
-│   └── logos.ts          # logo slider
-└── lib/                  # constants, SEO, mail, validation
-```
+Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS. The contact form sends mail through [Resend](https://resend.com) when configured. The app is set up to deploy on Vercel.
 
-Private repositories are described in `projects.ts` with `visibility: "private"` and no `repo` link. Public repositories set `visibility: "public"` and include `repo`.
+## Local development
 
-Screenshots are optional. A project without `coverImage` gets a generated cover.
-
-## Getting started
-
-Node.js 18+ and npm.
+Requires Node.js 18 or later.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000).
 
-Optional environment variables in `.env.local`:
+Copy the variables below into `.env.local`. All of them are optional for local development.
 
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 RESEND_API_KEY=
 RESEND_FROM_EMAIL=
-NEXT_PUBLIC_ENABLE_ANALYTICS=false
+NEXT_PUBLIC_ENABLE_ANALYTICS=
 ```
 
-Without a Resend key, contact submissions are logged instead of emailed.
+`NEXT_PUBLIC_SITE_URL` is used for canonical URLs, Open Graph, and the sitemap. Without `RESEND_API_KEY`, contact submissions are logged instead of emailed. Leave `NEXT_PUBLIC_ENABLE_ANALYTICS` empty locally. Any value, such as `true`, turns on Vercel Analytics and Speed Insights.
 
 ## Scripts
 
-```bash
-npm run dev          # development server
-npm run build        # production build
-npm run lint         # ESLint
-npm run typecheck    # TypeScript
-npm run test         # Vitest
-npm run format       # Prettier
-```
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript |
+| `npm run test` | Vitest |
+| `npm run format` | Prettier |
 
 ## Editing content
 
-- Projects: `src/data/projects.ts`
-- Skills: `src/data/skills.ts` (every skill alias must match a `tech` string on at least one project)
-- Name, links, and navigation: `src/lib/constants.ts`
-- About timeline: `src/components/sections/about-journey.tsx`
+- Projects live in `src/data/projects.ts`. Private work uses `visibility: "private"` and has no repository link. Public work uses `visibility: "public"` and includes `repo`. A project without `coverImage` renders a generated cover.
+- Skills are derived in `src/data/skills.ts`. Every skill must match a `tech` string on at least one project.
+- Name, navigation, and profile links are in `src/lib/constants.ts`.
+- The about timeline is in `src/components/sections/about-journey.tsx`.
 
 ## Deployment
 
-The app is set up for Vercel. Set `NEXT_PUBLIC_SITE_URL`, and `RESEND_API_KEY` / `RESEND_FROM_EMAIL` if the contact form should send mail.
+Deploy on Vercel and set `NEXT_PUBLIC_SITE_URL` to the public origin. Add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` when the contact form should deliver email.
