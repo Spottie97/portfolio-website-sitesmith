@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
-// Report-Only only — do not send Content-Security-Policy (enforced).
-// Vercel Analytics / Speed Insights use first-party /_vercel routes in
-// production, but in development they load https://va.vercel-scripts.com
-// and report to https://vitals.vercel-insights.com.
+// Exact enforcing policy from main's middleware.ts (including the trailing
+// semicolon). Do not tighten this unless a required origin is proven to
+// break the site.
+const contentSecurityPolicy =
+  "default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:;";
+
+// Stricter candidate. Report-only so violations are visible without
+// changing the enforced policy.
 const contentSecurityPolicyReportOnly = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -28,7 +32,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "X-Frame-Options",
-            value: "DENY",
+            value: "SAMEORIGIN",
           },
           {
             key: "Referrer-Policy",
@@ -36,7 +40,11 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            value: "geolocation=(), microphone=(), camera=()",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: contentSecurityPolicy,
           },
           {
             key: "Content-Security-Policy-Report-Only",
